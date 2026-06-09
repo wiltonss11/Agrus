@@ -1,0 +1,3054 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Agrus Contábil | Contabilidade para o Agronegócio</title>
+    <meta name="description" content="Contabilidade especializada em empresas de médio e grande porte no Lucro Real. Gestão tributária, fiscal e financeira para o agronegócio. Goiânia - GO." />
+    <meta name="keywords" content="contabilidade agronegócio, lucro real, contabilidade rural, planejamento tributário, SPED, Goiânia, agro" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Agrus Contábil | Contabilidade para o Agronegócio" />
+    <meta property="og:description" content="Especialistas em Lucro Real para empresas de médio e grande porte no agronegócio. Compliance, eficiência fiscal e crescimento sustentável." />
+    <meta property="og:url" content="https://www.agruscontabil.com.br" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Agrus Contábil | Contabilidade para o Agronegócio" />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/png" href="LOGOMARCA.png" />
+    <link rel="apple-touch-icon" href="LOGOMARCA.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Iconify -->
+    <script src="assets/758d94838db0cafd_iconify-icon.min.js"></script>
+
+    <!-- Template CSS (Tailwind + custom animations) -->
+    <link rel="stylesheet" href="assets/9c50894902ed9077_index-CT3yR8VR.css" />
+
+    <style>
+      /* ─── BRAND TOKENS ─────────────────────────────────────── */
+      :root {
+        --gold:        #f0d176;
+        --gold-dark:   #7d5f2a;
+        --gold-mid:    #c9a84c;
+        --black:       #101010;
+        --black-2:     #161616;
+        --black-3:     #1e1e1e;
+        --white:       #f5f5f5;
+        --white-dim:   rgba(245,245,245,0.7);
+        --gold-glass:  rgba(240,209,118,0.10);
+        --gold-border: rgba(240,209,118,0.20);
+        --gold-border-strong: rgba(240,209,118,0.40);
+      }
+
+      /* ─── GLOBAL RESET ──────────────────────────────────────── */
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      html { scroll-behavior: smooth; overflow-x: hidden; }
+
+      body {
+        background: var(--black);
+        color: var(--white);
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* ─── TYPOGRAPHY ────────────────────────────────────────── */
+      h1, h2, h3, h4, h5 {
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+
+      a { text-decoration: none; color: inherit; }
+      img { max-width: 100%; display: block; }
+
+      /* ─── LAYOUT ────────────────────────────────────────────── */
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      section { position: relative; overflow: hidden; }
+
+      /* ─── GRID OVERLAY ──────────────────────────────────────── */
+      .grid-overlay {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(240,209,118,0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(240,209,118,0.04) 1px, transparent 1px);
+        background-size: 80px 80px;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* ─── SECTION LABEL ─────────────────────────────────────── */
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        color: var(--gold);
+        text-transform: uppercase;
+        border: 1px solid var(--gold-border);
+        border-radius: 2px;
+        padding: 6px 14px;
+        background: var(--gold-glass);
+        backdrop-filter: blur(8px);
+        margin-bottom: 2rem;
+      }
+
+      .section-label::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--gold);
+      }
+
+      /* ─── SCROLL REVEAL ─────────────────────────────────────── */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(36px);
+        filter: blur(6px);
+        transition: opacity 0.8s cubic-bezier(.16,1,.3,1),
+                    transform 0.8s cubic-bezier(.16,1,.3,1),
+                    filter 0.8s cubic-bezier(.16,1,.3,1);
+        will-change: transform, opacity, filter;
+      }
+
+      .animate-on-scroll.animate {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+
+      /* Independent stagger items (NOT inside animate-on-scroll) */
+      .col-anim {
+        opacity: 0;
+        transform: translateY(48px);
+        filter: blur(4px);
+        transition: opacity 0.65s cubic-bezier(.16,1,.3,1),
+                    transform 0.65s cubic-bezier(.16,1,.3,1),
+                    filter 0.65s cubic-bezier(.16,1,.3,1);
+        will-change: transform, opacity, filter;
+      }
+
+      .col-anim.animate {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+
+      /* From-left / from-right variants */
+      .from-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        filter: blur(6px);
+        transition: opacity 0.8s cubic-bezier(.16,1,.3,1),
+                    transform 0.8s cubic-bezier(.16,1,.3,1),
+                    filter 0.8s cubic-bezier(.16,1,.3,1);
+      }
+      .from-left.animate { opacity: 1; transform: translateX(0); filter: blur(0); }
+
+      .from-right {
+        opacity: 0;
+        transform: translateX(50px);
+        filter: blur(6px);
+        transition: opacity 0.8s cubic-bezier(.16,1,.3,1),
+                    transform 0.8s cubic-bezier(.16,1,.3,1),
+                    filter 0.8s cubic-bezier(.16,1,.3,1);
+      }
+      .from-right.animate { opacity: 1; transform: translateX(0); filter: blur(0); }
+
+      /* Stagger delays — apply to any anim type */
+      .delay-1 { transition-delay: 0.08s !important; }
+      .delay-2 { transition-delay: 0.16s !important; }
+      .delay-3 { transition-delay: 0.24s !important; }
+      .delay-4 { transition-delay: 0.32s !important; }
+      .delay-5 { transition-delay: 0.40s !important; }
+      .delay-6 { transition-delay: 0.50s !important; }
+      .delay-7 { transition-delay: 0.60s !important; }
+
+      /* Clip-path text line reveal */
+      .line-reveal {
+        overflow: hidden;
+        display: block;
+      }
+      .line-reveal-inner {
+        display: block;
+        transform: translateY(110%);
+        transition: transform 0.85s cubic-bezier(.16,1,.3,1);
+      }
+      .line-reveal.animate .line-reveal-inner { transform: translateY(0); }
+      .line-reveal.delay-1 .line-reveal-inner { transition-delay: 0.12s; }
+      .line-reveal.delay-2 .line-reveal-inner { transition-delay: 0.22s; }
+      .line-reveal.delay-3 .line-reveal-inner { transition-delay: 0.32s; }
+
+      /* Cursor glow */
+      .cursor-glow {
+        position: fixed;
+        width: 380px;
+        height: 380px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(240,209,118,0.06) 0%, transparent 65%);
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s;
+        opacity: 0;
+      }
+
+      /* Canvas hero background */
+      #heroCanvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.55;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* Scan-line decoration on headings */
+      .scan-line {
+        position: relative;
+        overflow: hidden;
+      }
+      .scan-line::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent 0%, rgba(240,209,118,0.12) 50%, transparent 100%);
+        animation: scanRight 2.4s ease-in-out infinite;
+        animation-delay: 1.2s;
+        pointer-events: none;
+      }
+
+      /* Gold accent line that expands on scroll */
+      .line-grow {
+        width: 0;
+        height: 1px;
+        background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+        transition: width 1.2s cubic-bezier(.16,1,.3,1);
+        display: block;
+        margin: 2rem 0;
+      }
+      .line-grow.animate { width: 80px; }
+
+      /* ─── KEYFRAMES ─────────────────────────────────────────── */
+      @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        33%  { transform: translateY(-12px) rotate(1deg); }
+        66%  { transform: translateY(-6px) rotate(-1deg); }
+      }
+
+      @keyframes fadeSlideIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes marquee {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+      }
+
+      @keyframes shimmer {
+        0%   { background-position: -200% center; }
+        100% { background-position: 200% center; }
+      }
+
+      @keyframes pulse-ring {
+        0%   { box-shadow: 0 0 0 0 rgba(240,209,118,0.4); }
+        70%  { box-shadow: 0 0 0 16px rgba(240,209,118,0); }
+        100% { box-shadow: 0 0 0 0 rgba(240,209,118,0); }
+      }
+
+      @keyframes borderRotate {
+        0%   { background-position: 0% 50%; }
+        50%  { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      @keyframes countUp {
+        from { opacity: 0; transform: translateY(8px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes scanRight {
+        0%   { transform: translateX(-100%); }
+        100% { transform: translateX(340%); }
+      }
+
+      @keyframes lineGrow {
+        from { transform: scaleX(0); opacity: 0; }
+        to   { transform: scaleX(1); opacity: 1; }
+      }
+
+      @keyframes glowPulse {
+        0%, 100% { opacity: 0.4; }
+        50%       { opacity: 1; }
+      }
+
+      @keyframes borderFlash {
+        0%, 100% { opacity: 0.2; }
+        50%       { opacity: 0.7; }
+      }
+
+      @keyframes rotateSlow {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
+      }
+
+      @keyframes dotBlink {
+        0%, 100% { opacity: 0.3; }
+        50%       { opacity: 1; }
+      }
+
+      /* ─── NAVBAR ────────────────────────────────────────────── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 0 2rem;
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(240,209,118,0.12);
+        background: rgba(16,16,16,0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transition: background 0.4s ease, border-color 0.4s ease;
+      }
+
+      nav.scrolled {
+        background: rgba(16,16,16,0.97);
+        border-color: rgba(240,209,118,0.20);
+      }
+
+      .nav-logo img {
+        height: 38px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: rgba(245,245,245,0.65);
+        letter-spacing: 0.04em;
+        transition: color 0.2s;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--gold);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover { color: var(--white); }
+      .nav-links a:hover::after { width: 100%; }
+
+      .nav-cta {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--black);
+        background: linear-gradient(135deg, var(--gold) 0%, var(--gold-mid) 100%);
+        border: none;
+        border-radius: 3px;
+        padding: 10px 22px;
+        cursor: pointer;
+        transition: opacity 0.2s, transform 0.2s;
+        white-space: nowrap;
+      }
+
+      .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+      /* Mobile menu */
+      .nav-mobile-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 8px;
+      }
+
+      .nav-mobile-toggle span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--white);
+        border-radius: 2px;
+        transition: all 0.3s;
+      }
+
+      /* ─── HERO ──────────────────────────────────────────────── */
+      #inicio {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 120px 2rem 80px;
+        background: var(--black);
+        position: relative;
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 60% 50% at 70% 40%, rgba(240,209,118,0.06) 0%, transparent 70%),
+          radial-gradient(ellipse 40% 60% at 20% 80%, rgba(125,95,42,0.08) 0%, transparent 60%);
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 1280px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        color: var(--gold);
+        text-transform: uppercase;
+        margin-bottom: 2.5rem;
+        animation: fadeSlideIn 0.8s ease forwards;
+      }
+
+      .hero-eyebrow::before {
+        content: '';
+        display: block;
+        width: 32px;
+        height: 1px;
+        background: var(--gold);
+      }
+
+      .hero-h1 {
+        font-size: clamp(3.2rem, 8vw, 8rem);
+        font-weight: 900;
+        line-height: 1.0;
+        letter-spacing: -0.03em;
+        color: var(--white);
+        margin-bottom: 2rem;
+        animation: fadeSlideIn 0.9s 0.1s ease both;
+      }
+
+      .hero-h1 .gold { color: var(--gold); }
+
+      .hero-h1 .line-outline {
+        -webkit-text-stroke: 1px rgba(245,245,245,0.3);
+        color: transparent;
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1rem, 1.8vw, 1.2rem);
+        font-weight: 400;
+        color: var(--white-dim);
+        max-width: 540px;
+        line-height: 1.7;
+        margin-bottom: 3rem;
+        animation: fadeSlideIn 1s 0.2s ease both;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        animation: fadeSlideIn 1s 0.3s ease both;
+      }
+
+      .btn-primary {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--black);
+        background: linear-gradient(135deg, var(--gold) 0%, var(--gold-mid) 100%);
+        border: none;
+        border-radius: 3px;
+        padding: 15px 32px;
+        cursor: pointer;
+        transition: all 0.25s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-primary::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+        opacity: 0;
+        transition: opacity 0.25s;
+      }
+
+      .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(240,209,118,0.35); }
+      .btn-primary:hover::after { opacity: 1; }
+
+      .btn-secondary {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--white);
+        background: transparent;
+        border: 1px solid var(--gold-border-strong);
+        border-radius: 3px;
+        padding: 15px 32px;
+        cursor: pointer;
+        transition: all 0.25s;
+      }
+
+      .btn-secondary:hover {
+        background: var(--gold-glass);
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        margin-top: 5rem;
+        max-width: 620px;
+        border-top: 1px solid var(--gold-border);
+        border-left: 1px solid var(--gold-border);
+        animation: fadeSlideIn 1s 0.5s ease both;
+      }
+
+      .hero-stat {
+        padding: 2rem 2rem 1.5rem;
+        border-right: 1px solid var(--gold-border);
+        border-bottom: 1px solid var(--gold-border);
+      }
+
+      .hero-stat-num {
+        font-family: 'Montserrat', sans-serif;
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        font-weight: 900;
+        color: var(--gold);
+        line-height: 1;
+        display: block;
+        margin-bottom: 0.4rem;
+      }
+
+      .hero-stat-label {
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: var(--white-dim);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      /* Floating particles */
+      .hero-particle {
+        position: absolute;
+        border-radius: 50%;
+        background: var(--gold);
+        opacity: 0.12;
+        animation: float var(--dur, 6s) ease-in-out infinite;
+        animation-delay: var(--delay, 0s);
+        pointer-events: none;
+      }
+
+      /* ─── MARQUEE ────────────────────────────────────────────── */
+      #marquee-section {
+        padding: 0;
+        border-top: 1px solid var(--gold-border);
+        border-bottom: 1px solid var(--gold-border);
+        background: var(--black-2);
+        overflow: hidden;
+      }
+
+      .marquee-container {
+        display: flex;
+        overflow: hidden;
+        padding: 18px 0;
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      }
+
+      .marquee-content {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        animation: marquee 22s linear infinite;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+
+      .marquee-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 0 2.5rem;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(245,245,245,0.45);
+        transition: color 0.3s;
+      }
+
+      .marquee-item::after {
+        content: '·';
+        color: var(--gold);
+        font-size: 1.2rem;
+      }
+
+      .marquee-item:last-child::after { display: none; }
+
+      /* ─── PROPOSTA DE VALOR ──────────────────────────────────── */
+      #proposta {
+        padding: 140px 2rem;
+        background: var(--black);
+        position: relative;
+      }
+
+      .proposta-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .proposta-headline {
+        font-size: clamp(3rem, 7vw, 6.5rem);
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        color: var(--white);
+        line-height: 1;
+      }
+
+      .proposta-headline span {
+        display: block;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(240,209,118,0.6);
+      }
+
+      .proposta-right {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .proposta-text {
+        font-size: 1.05rem;
+        color: var(--white-dim);
+        line-height: 1.8;
+      }
+
+      .proposta-accent-line {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--gold);
+        letter-spacing: 0.04em;
+      }
+
+      .proposta-accent-line::before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 1px;
+        background: var(--gold);
+        flex-shrink: 0;
+      }
+
+      /* ─── SERVIÇOS ──────────────────────────────────────────── */
+      #servicos {
+        padding: 120px 2rem;
+        background: var(--black-2);
+        position: relative;
+      }
+
+      .section-header {
+        max-width: 1280px;
+        margin: 0 auto 4rem;
+      }
+
+      .section-title {
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        color: var(--white);
+        max-width: 600px;
+        line-height: 1.1;
+      }
+
+      .section-title .gold { color: var(--gold); }
+
+      .services-grid {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--gold-border);
+        border: 1px solid var(--gold-border);
+      }
+
+      .service-card {
+        background: var(--black-2);
+        padding: 2.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        cursor: default;
+        transition: background 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold) 0%, var(--gold-dark) 100%);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+
+      .service-card:hover { background: var(--black-3); }
+      .service-card:hover::before { transform: scaleX(1); }
+
+      .service-num {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        color: var(--gold);
+        opacity: 0.7;
+      }
+
+      .service-icon {
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--gold-border);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--gold-glass);
+        color: var(--gold);
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .service-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.3;
+      }
+
+      .service-desc {
+        font-size: 0.88rem;
+        color: var(--white-dim);
+        line-height: 1.65;
+        flex-grow: 1;
+      }
+
+      .service-arrow {
+        font-size: 0.75rem;
+        color: var(--gold);
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: opacity 0.25s, transform 0.25s;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-top: auto;
+      }
+
+      .service-card:hover .service-arrow { opacity: 1; transform: translateX(0); }
+
+      /* ─── DIFERENCIAL ────────────────────────────────────────── */
+      #diferencial {
+        padding: 140px 2rem;
+        background: var(--black);
+        position: relative;
+      }
+
+      .diferencial-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .diferencial-left {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .diferencial-headline {
+        font-size: clamp(2.8rem, 6vw, 5.5rem);
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        color: var(--white);
+        line-height: 1;
+      }
+
+      .diferencial-headline .gold { color: var(--gold); }
+      .diferencial-headline .outline {
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(245,245,245,0.25);
+      }
+
+      .diferencial-text {
+        font-size: 1rem;
+        color: var(--white-dim);
+        line-height: 1.8;
+        max-width: 480px;
+      }
+
+      .diferencial-card {
+        background: var(--black-2);
+        border: 1px solid var(--gold-border);
+        border-radius: 4px;
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .diferencial-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+      }
+
+      .diferencial-kpi {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .diferencial-kpi-num {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 3rem;
+        font-weight: 900;
+        color: var(--gold);
+        line-height: 1;
+      }
+
+      .diferencial-kpi-label {
+        font-size: 0.82rem;
+        color: var(--white-dim);
+        letter-spacing: 0.04em;
+      }
+
+      .diferencial-kpi-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .diferencial-kpi-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.9rem;
+        color: var(--white-dim);
+      }
+
+      .diferencial-kpi-list li::before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--gold);
+        flex-shrink: 0;
+      }
+
+      /* ─── METODOLOGIA ────────────────────────────────────────── */
+      #metodologia {
+        padding: 120px 2rem;
+        background: var(--black-2);
+        position: relative;
+      }
+
+      .process-grid {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: var(--gold-border);
+        border: 1px solid var(--gold-border);
+        margin-top: 4rem;
+      }
+
+      .process-step {
+        background: var(--black-2);
+        padding: 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        position: relative;
+        transition: background 0.3s;
+      }
+
+      .process-step:hover { background: var(--black-3); }
+
+      .process-step-num {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 4rem;
+        font-weight: 900;
+        color: rgba(240,209,118,0.08);
+        line-height: 1;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        pointer-events: none;
+      }
+
+      .process-step-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        color: var(--gold);
+        text-transform: uppercase;
+        border: 1px solid var(--gold-border);
+        border-radius: 2px;
+        padding: 4px 10px;
+        background: var(--gold-glass);
+        width: fit-content;
+        margin-bottom: 0.5rem;
+      }
+
+      .process-step-icon {
+        width: 46px;
+        height: 46px;
+        border: 1px solid var(--gold-border);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--gold-glass);
+        color: var(--gold);
+        font-size: 1.2rem;
+      }
+
+      .process-step-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-top: 0.5rem;
+      }
+
+      .process-step-time {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        color: var(--gold);
+        text-transform: uppercase;
+      }
+
+      .process-step-desc {
+        font-size: 0.88rem;
+        color: var(--white-dim);
+        line-height: 1.65;
+      }
+
+      /* ─── CASES ──────────────────────────────────────────────── */
+      #cases {
+        padding: 120px 2rem;
+        background: var(--black);
+        position: relative;
+      }
+
+      .cases-grid {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        background: var(--gold-border);
+        border: 1px solid var(--gold-border);
+        margin-top: 4rem;
+      }
+
+      .case-card {
+        background: var(--black);
+        padding: 3rem 2.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        position: relative;
+        overflow: hidden;
+        transition: background 0.3s;
+      }
+
+      .case-card::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        transform: scaleX(0);
+        transition: transform 0.5s ease;
+      }
+
+      .case-card:hover { background: var(--black-2); }
+      .case-card:hover::after { transform: scaleX(1); }
+
+      .case-index {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        color: var(--gold);
+        opacity: 0.6;
+        text-transform: uppercase;
+      }
+
+      .case-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.2;
+      }
+
+      .case-desc {
+        font-size: 0.92rem;
+        color: var(--white-dim);
+        line-height: 1.7;
+        flex-grow: 1;
+      }
+
+      .case-stat {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--gold);
+        line-height: 1;
+      }
+
+      /* ─── EXPERTISE ──────────────────────────────────────────── */
+      #expertise {
+        padding: 120px 2rem;
+        background: var(--black-2);
+        position: relative;
+      }
+
+      .expertise-grid {
+        max-width: 1280px;
+        margin: 4rem auto 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: var(--gold-border);
+        border: 1px solid var(--gold-border);
+      }
+
+      .expertise-item {
+        background: var(--black-2);
+        padding: 2.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition: background 0.3s;
+        position: relative;
+        overflow: hidden;
+        cursor: default;
+      }
+
+      .expertise-item::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at top left, rgba(240,209,118,0.05) 0%, transparent 60%);
+        opacity: 0;
+        transition: opacity 0.4s;
+      }
+
+      .expertise-item:hover { background: var(--black-3); }
+      .expertise-item:hover::before { opacity: 1; }
+
+      .expertise-num {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        color: var(--gold);
+        opacity: 0.6;
+      }
+
+      .expertise-icon {
+        width: 48px;
+        height: 48px;
+        border: 1px solid var(--gold-border);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--gold-glass);
+        color: var(--gold);
+        font-size: 1.3rem;
+      }
+
+      .expertise-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.3;
+      }
+
+      .expertise-desc {
+        font-size: 0.86rem;
+        color: var(--white-dim);
+        line-height: 1.6;
+      }
+
+      /* ─── DEPOIMENTOS ────────────────────────────────────────── */
+      #depoimentos {
+        padding: 120px 2rem;
+        background: var(--black);
+        position: relative;
+      }
+
+      .testimonials-grid {
+        max-width: 1280px;
+        margin: 4rem auto 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        background: var(--gold-border);
+        border: 1px solid var(--gold-border);
+      }
+
+      .testimonial-card {
+        background: var(--black);
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        position: relative;
+        overflow: hidden;
+        transition: background 0.3s;
+      }
+
+      .testimonial-card::before {
+        content: '"';
+        position: absolute;
+        top: 1.5rem;
+        right: 2rem;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 6rem;
+        font-weight: 900;
+        color: rgba(240,209,118,0.06);
+        line-height: 1;
+        pointer-events: none;
+      }
+
+      .testimonial-card:hover { background: var(--black-2); }
+
+      .testimonial-stars {
+        display: flex;
+        gap: 3px;
+        color: var(--gold);
+        font-size: 0.8rem;
+      }
+
+      .testimonial-text {
+        font-size: 0.95rem;
+        color: var(--white-dim);
+        line-height: 1.75;
+        font-style: italic;
+        flex-grow: 1;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        border-top: 1px solid var(--gold-border);
+        padding-top: 1.2rem;
+      }
+
+      .testimonial-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--black);
+        flex-shrink: 0;
+      }
+
+      .testimonial-info-name {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--white);
+      }
+
+      .testimonial-info-role {
+        font-size: 0.75rem;
+        color: var(--gold);
+        letter-spacing: 0.04em;
+      }
+
+      /* ─── PLANOS ─────────────────────────────────────────────── */
+      #planos {
+        padding: 120px 2rem;
+        background: var(--black-2);
+        position: relative;
+      }
+
+      .plans-grid {
+        max-width: 1280px;
+        margin: 4rem auto 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+        background: var(--gold-border);
+        border: 1px solid var(--gold-border);
+        max-width: 900px;
+      }
+
+      .plan-card {
+        background: var(--black-2);
+        padding: 3.5rem 3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        position: relative;
+        overflow: hidden;
+        transition: background 0.3s;
+      }
+
+      .plan-card.featured {
+        background: linear-gradient(160deg, rgba(125,95,42,0.2) 0%, var(--black-3) 100%);
+      }
+
+      .plan-card.featured::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+      }
+
+      .plan-badge {
+        display: inline-block;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--black);
+        background: var(--gold);
+        border-radius: 2px;
+        padding: 4px 10px;
+        width: fit-content;
+      }
+
+      .plan-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.1;
+      }
+
+      .plan-desc {
+        font-size: 0.9rem;
+        color: var(--white-dim);
+        line-height: 1.65;
+      }
+
+      .plan-features {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        flex-grow: 1;
+      }
+
+      .plan-features li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.9rem;
+        color: var(--white-dim);
+      }
+
+      .plan-features li::before {
+        content: '✓';
+        color: var(--gold);
+        font-weight: 700;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+
+      /* ─── CTA FINAL ──────────────────────────────────────────── */
+      #cta {
+        padding: 160px 2rem;
+        background: var(--black);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-bg-glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 800px;
+        height: 500px;
+        background: radial-gradient(ellipse, rgba(240,209,118,0.07) 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      .cta-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .cta-headline {
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        color: var(--white);
+        line-height: 1.05;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-headline .gold { color: var(--gold); }
+
+      .cta-sub {
+        font-size: 1rem;
+        color: var(--white-dim);
+        line-height: 1.7;
+        margin-bottom: 3rem;
+      }
+
+      .cta-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .cta-email {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.88rem;
+        color: var(--white-dim);
+      }
+
+      .cta-email a { color: var(--gold); transition: opacity 0.2s; }
+      .cta-email a:hover { opacity: 0.75; }
+
+      /* Shiny CTA button */
+      .shiny-cta {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.88rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--black);
+        background: linear-gradient(135deg, var(--gold) 0%, var(--gold-mid) 50%, var(--gold) 100%);
+        background-size: 200% auto;
+        border: none;
+        border-radius: 3px;
+        padding: 18px 40px;
+        cursor: pointer;
+        transition: all 0.3s;
+        animation: shimmer 3s linear infinite;
+        text-decoration: none;
+      }
+
+      .shiny-cta:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(240,209,118,0.4);
+      }
+
+      /* ─── FOOTER ─────────────────────────────────────────────── */
+      footer {
+        padding: 60px 2rem 40px;
+        background: var(--black-2);
+        border-top: 1px solid var(--gold-border);
+      }
+
+      .footer-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .footer-top {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 4rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid var(--gold-border);
+        margin-bottom: 2rem;
+      }
+
+      .footer-brand-desc {
+        font-size: 0.88rem;
+        color: var(--white-dim);
+        line-height: 1.7;
+        max-width: 300px;
+        margin-top: 1rem;
+      }
+
+      .footer-col-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .footer-links li a {
+        font-size: 0.88rem;
+        color: var(--white-dim);
+        transition: color 0.2s;
+      }
+
+      .footer-links li a:hover { color: var(--white); }
+
+      .footer-contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.88rem;
+        color: var(--white-dim);
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-contact-item iconify-icon {
+        color: var(--gold);
+        font-size: 1rem;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .footer-copy {
+        font-size: 0.8rem;
+        color: rgba(245,245,245,0.35);
+      }
+
+      .footer-crc {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.75rem;
+        color: var(--gold);
+        opacity: 0.7;
+        border: 1px solid var(--gold-border);
+        border-radius: 2px;
+        padding: 4px 10px;
+      }
+
+      /* ─── WHATSAPP FLOAT ─────────────────────────────────────── */
+      .wa-float {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        z-index: 999;
+        background: linear-gradient(135deg, #f0d176, #7d5f2a);
+        border-radius: 50%;
+        width: 58px;
+        height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 24px rgba(240,209,118,0.45);
+        animation: pulse-ring 2.5s ease-out infinite;
+        transition: transform 0.2s;
+        text-decoration: none;
+      }
+
+      .wa-float:hover { transform: scale(1.1); }
+
+      /* ─── RESPONSIVE ─────────────────────────────────────────── */
+      /* ─── HERO GRID (2 colunas com globo) ───────────────────── */
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .hero-content { position: relative; z-index: 1; }
+
+      .hero-globe-wrap {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+      }
+
+      #globeCanvas {
+        width: 480px;
+        height: 480px;
+        max-width: 100%;
+        display: block;
+        cursor: grab;
+      }
+
+      #globeCanvas:active { cursor: grabbing; }
+
+      .globe-glow-ring {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        max-width: 100%;
+        border-radius: 50%;
+        background: radial-gradient(circle,
+          rgba(240,209,118,0.10) 0%,
+          rgba(240,209,118,0.04) 40%,
+          transparent 70%);
+        pointer-events: none;
+        animation: glowPulse 3s ease-in-out infinite;
+      }
+
+      .globe-label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        margin-top: 1rem;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .globe-label span {
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--white-dim);
+      }
+
+      .globe-label strong {
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      /* ─── VIDEO IMERSIVO ─────────────────────────────────────── */
+      #video-bg {
+        position: relative;
+        height: 85vh;
+        min-height: 520px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #bgVideo {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .video-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(16,16,16,0.55) 0%,
+          rgba(16,16,16,0.25) 50%,
+          rgba(16,16,16,0.70) 100%
+        );
+      }
+
+      .video-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 700px;
+        padding: 0 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .video-headline {
+        font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        color: var(--white);
+        line-height: 1.05;
+        text-shadow: 0 2px 40px rgba(0,0,0,0.6);
+      }
+
+      .video-headline .gold { color: var(--gold); }
+
+      .video-sub {
+        font-size: 1rem;
+        color: rgba(245,245,245,0.85);
+        line-height: 1.7;
+        text-shadow: 0 1px 12px rgba(0,0,0,0.5);
+        max-width: 500px;
+      }
+
+      /* Active nav link */
+      .nav-links a.active { color: var(--white) !important; }
+      .nav-links a.active::after { width: 100% !important; background: var(--gold); }
+
+      /* Hamburger open animation */
+      .nav-mobile-toggle span {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      /* Hero canvas */
+      #heroCanvas { will-change: transform; }
+
+      /* plan-card hover */
+      .plan-card:hover { background: var(--black-3); }
+
+      @media (max-width: 1100px) {
+        .hero-grid { grid-template-columns: 1fr; }
+        .hero-globe-wrap { order: -1; }
+        #globeCanvas { width: 340px; height: 340px; }
+        .globe-glow-ring { width: 360px; height: 360px; }
+      }
+
+      @media (max-width: 1024px) {
+        .services-grid { grid-template-columns: repeat(2, 1fr); }
+        .process-grid { grid-template-columns: repeat(2, 1fr); }
+        .expertise-grid { grid-template-columns: repeat(2, 1fr); }
+        .proposta-inner { grid-template-columns: 1fr; gap: 40px; }
+        .diferencial-inner { grid-template-columns: 1fr; gap: 40px; }
+        .footer-top { grid-template-columns: 1fr 1fr; }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links { display: none; }
+        .nav-mobile-toggle { display: flex; }
+        .nav-links.open {
+          display: flex;
+          flex-direction: column;
+          position: fixed;
+          top: 72px;
+          left: 0;
+          right: 0;
+          background: rgba(16,16,16,0.98);
+          padding: 2rem;
+          gap: 1.5rem;
+          border-bottom: 1px solid var(--gold-border);
+          z-index: 999;
+        }
+        .services-grid { grid-template-columns: 1fr; }
+        .process-grid { grid-template-columns: 1fr; }
+        .cases-grid { grid-template-columns: 1fr; }
+        .expertise-grid { grid-template-columns: 1fr 1fr; }
+        .testimonials-grid { grid-template-columns: 1fr; }
+        .plans-grid { grid-template-columns: 1fr; }
+        .hero-stats { grid-template-columns: 1fr; max-width: 260px; }
+        .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+        .footer-bottom { flex-direction: column; align-items: flex-start; }
+        .proposta-headline { font-size: clamp(2.5rem, 10vw, 4rem); }
+        #video-bg { height: 70vh; }
+        #globeCanvas { width: 280px; height: 280px; }
+        .globe-glow-ring { width: 300px; height: 300px; }
+      }
+
+      @media (max-width: 480px) {
+        .hero-h1 { font-size: clamp(2.6rem, 12vw, 4rem); }
+        .expertise-grid { grid-template-columns: 1fr; }
+        #video-bg { height: 60vh; }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- NAVBAR                                                    -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <nav id="navbar">
+      <a href="#inicio" class="nav-logo">
+        <img src="LOGOMARCA-TIPO.png" alt="Agrus Contábil" />
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#proposta">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#metodologia">Como Trabalhamos</a></li>
+        <li><a href="#cta">Fale Conosco</a></li>
+      </ul>
+
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <a href="https://wa.me/5562982368804" target="_blank" rel="noopener" class="nav-cta">
+          Fale no WhatsApp
+        </a>
+        <div class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu" role="button" tabindex="0">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- HERO                                                      -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <section id="inicio">
+      <canvas id="heroCanvas"></canvas>
+      <div class="grid-overlay"></div>
+      <div class="hero-bg"></div>
+
+      <div class="hero-inner hero-grid">
+
+        <!-- Conteúdo esquerdo -->
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            CONTABILIDADE PARA O AGRONEGÓCIO
+          </div>
+
+          <h1 class="hero-h1">
+            Gestão contábil<br />
+            <span class="gold">para quem produz</span><br />
+            o Brasil.
+          </h1>
+
+          <p class="hero-subtitle">
+            Especialistas em Lucro Real para empresas de médio e grande porte no agronegócio.
+            Compliance, eficiência fiscal e crescimento sustentável.
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://wa.me/5562982368804" target="_blank" rel="noopener" class="btn-primary">
+              Agendar Diagnóstico Gratuito
+            </a>
+            <a href="#servicos" class="btn-secondary">
+              Conhecer Serviços
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="hero-stat-num" data-target="150" data-prefix="+">+150</span>
+              <span class="hero-stat-label">Clientes Ativos</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num" data-target="10" data-prefix="+">+10</span>
+              <span class="hero-stat-label">Anos no Agro</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num" data-target="100" data-suffix="%">100%</span>
+              <span class="hero-stat-label">Conformidade Fiscal</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Globo 3D direito -->
+        <div class="hero-globe-wrap">
+          <div class="globe-glow-ring"></div>
+          <canvas id="globeCanvas"></canvas>
+          <div class="globe-label">
+            <span>Atendemos</span>
+            <strong>Todo o Brasil</strong>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- MARQUEE TICKER                                            -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <section id="marquee-section">
+      <div class="marquee-container">
+        <div class="marquee-content" aria-hidden="true">
+          <span class="marquee-item">Soja</span>
+          <span class="marquee-item">Milho</span>
+          <span class="marquee-item">Pecuária</span>
+          <span class="marquee-item">Cana-de-Açúcar</span>
+          <span class="marquee-item">Algodão</span>
+          <span class="marquee-item">Café</span>
+          <span class="marquee-item">Agroindústria</span>
+          <span class="marquee-item">Cooperativas</span>
+          <span class="marquee-item">Fazendas</span>
+          <span class="marquee-item">Trading</span>
+          <span class="marquee-item">Frigoríficos</span>
+          <!-- Duplicate for seamless loop -->
+          <span class="marquee-item">Soja</span>
+          <span class="marquee-item">Milho</span>
+          <span class="marquee-item">Pecuária</span>
+          <span class="marquee-item">Cana-de-Açúcar</span>
+          <span class="marquee-item">Algodão</span>
+          <span class="marquee-item">Café</span>
+          <span class="marquee-item">Agroindústria</span>
+          <span class="marquee-item">Cooperativas</span>
+          <span class="marquee-item">Fazendas</span>
+          <span class="marquee-item">Trading</span>
+          <span class="marquee-item">Frigoríficos</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- VÍDEO IMERSIVO                                            -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <section id="video-bg">
+      <video
+        id="bgVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        aria-hidden="true">
+        <source src="assets/5a2632adcabf5338_1779983177549-0b0303f7-4287-44.mp4" type="video/mp4" />
+      </video>
+
+      <div class="video-overlay"></div>
+
+      <div class="video-content animate-on-scroll">
+        <div class="section-label" style="margin:0 auto 1.5rem;">O CAMPO QUE ALIMENTA O MUNDO</div>
+        <h2 class="video-headline">
+          Do campo ao balanço,<br />
+          <span class="gold">sua contabilidade.</span>
+        </h2>
+        <p class="video-sub">
+          Entendemos o agronegócio porque vivemos nele. Cada detalhe do campo
+          reflete-se em cada lançamento contábil.
+        </p>
+        <a href="https://wa.me/5562982368804" target="_blank" rel="noopener" class="btn-primary" style="width:fit-content;">
+          Falar com Especialista
+        </a>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- PROPOSTA DE VALOR                                         -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <section id="proposta">
+      <div class="grid-overlay"></div>
+
+      <div class="proposta-inner">
+        <div class="animate-on-scroll">
+          <div class="section-label">NOSSA ESSÊNCIA</div>
+          <div class="proposta-headline">
+            Precisão<br />
+            <span>fiscal.</span>
+          </div>
+        </div>
+
+        <div class="proposta-right animate-on-scroll delay-2">
+          <p class="proposta-text">
+            Eliminamos a complexidade tributária do seu negócio para que você foque no que
+            realmente importa: crescer. Cada centavo bem apurado é lucro real no seu caixa.
+          </p>
+          <div class="proposta-accent-line">
+            Lucro Real é nossa especialidade — não uma opção
+          </div>
+          <div style="display:flex;gap:3rem;margin-top:1rem;">
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:900;color:var(--gold);line-height:1;">23%</div>
+              <div style="font-size:0.8rem;color:var(--white-dim);margin-top:4px;text-transform:uppercase;letter-spacing:0.06em;">Redução média<br>tributária</div>
+            </div>
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:900;color:var(--gold);line-height:1;">+50</div>
+              <div style="font-size:0.8rem;color:var(--white-dim);margin-top:4px;text-transform:uppercase;letter-spacing:0.06em;">Empresas<br>regularizadas</div>
+            </div>
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:900;color:var(--gold);line-height:1;">GO</div>
+              <div style="font-size:0.8rem;color:var(--white-dim);margin-top:4px;text-transform:uppercase;letter-spacing:0.06em;">Goiânia<br>Todo Brasil</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- SERVIÇOS                                                  -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <section id="servicos">
+      <div class="grid-overlay"></div>
+
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">SERVIÇOS</div>
+        <h2 class="section-title">
+          A estrutura do seu<br />
+          <span class="gold">crescimento fiscal.</span>
+        </h2>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card col-anim delay-1">
+          <div class="service-num">01</div>
+          <div class="service-icon">
+            <iconify-icon icon="solar:graph-up-bold" width="20"></iconify-icon>
+          </div>
+          <div class="service-title">Contabilidade no Lucro Real</div>
+          <div class="service-desc">
+            Escrituração contábil completa e obrigações acessórias para empresas no regime
+            Lucro Real, com rigor técnico e conformidade total.
+          </div>
+          <div class="service-arrow">
+            <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+            Saiba mais
+          </div>
+        </div>
+
+        <div class="service-card col-anim delay-2">
+          <div class="service-num">02</div>
+          <div class="service-icon">
+            <iconify-icon icon="solar:calculator-bold" width="20"></iconify-icon>
+          </div>
+          <div class="service-title">Gestão Tributária</div>
+          <div class="service-desc">
+            Planejamento e apuração de IRPJ, CSLL, PIS, COFINS e tributos específicos do
+            agronegócio, minimizando a carga fiscal de forma legal.
+          </div>
+          <div class="service-arrow">
+            <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+            Saiba mais
+          </div>
+        </div>
+
+        <div class="service-card col-anim delay-3">
+          <div class="service-num">03</div>
+          <div class="service-icon">
+            <iconify-icon icon="solar:tractor-bold" width="20"></iconify-icon>
+          </div>
+          <div class="service-title">Consultoria Fiscal Rural</div>
+          <div class="service-desc">
+            ITR, Funrural, Bloco K e compliance para produtores rurais e agroindústrias.
+            Especialização que faz a diferença na lavoura e no balanço.
+          </div>
+          <div class="service-arrow">
+            <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+            Saiba mais
+          </div>
+        </div>
+
+        <div class="service-card col-anim delay-4">
+          <div class="service-num">04</div>
+          <div class="service-icon">
+            <iconify-icon icon="solar:document-bold" width="20"></iconify-icon>
+          </div>
+          <div class="service-title">SPED e Obrigações Acessórias</div>
+          <div class="service-desc">
+            ECF, EFD-Contribuições, EFD-ICMS/IPI, REINF, e-Social e DCTF entregues com
+            precisão e dentro dos prazos, sem autuações.
+          </div>
+          <div class="service-arrow">
+            <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+            Saiba mais
+          </div>
+        </div>
+
+        <div class="service-card col-anim delay-5">
+          <div class="service-num">05</div>
+          <div class="service-icon">
+            <iconify-icon icon="solar:users-group-rounded-bold" width="20"></iconify-icon>
+          </div>
+          <div class="service-title">Folha de Pagamento</div>
+          <div class="service-desc">
+            Gestão completa de RH e folha para colaboradores do campo ao escritório,
+            incluindo encargos trabalhistas e previdenciários rurais.
+          </div>
+          <div class="service-arrow">
+            <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+            Saiba mais
+          </div>
+        </div>
+
+        <div class="service-card col-anim delay-6">
+          <div class="service-num">06</div>
+          <div class="service-icon">
+            <iconify-icon icon="solar:chart-bold" width="20"></iconify-icon>
+          </div>
+          <div class="service-title">Consultoria Financeira</div>
+          <div class="service-desc">
+            DRE, fluxo de caixa, análise de resultados e planejamento financeiro estratégico
+            para tomada de decisão com dados confiáveis.
+          </div>
+          <div class="service-arrow">
+            <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+            Saiba mais
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- DIFERENCIAL                                               -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <section id="diferencial">
+      <div class="grid-overlay"></div>
+
+      <div class="diferencial-inner">
+        <div class="diferencial-left animate-on-scroll">
+          <div class="section-label">DIFERENCIAL</div>
+          <div class="diferencial-headline">
+            Lucro Real.<br />
+            <span class="gold">Resultado real.</span>
+          </div>
+          <p class="diferencial-text">
+            Somos a única contabilidade do Centro-Oeste especializada exclusivamente no Lucro
+            Real para o agronegócio. Nosso método reduz a carga tributária legal e aumenta a
+            previsibilidade financeira do seu negócio.
+          </p>
+          <a href="https://wa.me/5562982368804" target="_blank" rel="noopener" class="btn-primary" style="width:fit-content;margin-top:0.5rem;">
+            Falar com Especialista
+          </a>
+        </div>
+
+        <div class="animate-on-scroll delay-2">
+          <div class="diferencial-card">
+            <div style="display:flex;gap:2rem;flex-wrap:wrap;">
+              <div class="diferencial-kpi">
+                <span class="diferencial-kpi-num">23%</span>
+                <span class="diferencial-kpi-label">Redução tributária média no 1º ano</span>
+              </div>
+              <div class="diferencial-kpi">
+                <span class="diferencial-kpi-num">100%</span>
+                <span class="diferencial-kpi-label">Clientes sem autuações fiscais</span>
+              </div>
+            </div>
+            <div style="height:1px;background:var(--gold-border);"></div>
+            <ul class="diferencial-kpi-list">
+              <li>Especialização exclusiva em Lucro Real e agronegócio</li>
+              <li>Equipe técnica certificada pelo CFC-GO</li>
+              <li>Relatórios mensais de gestão e análise de resultados</li>
+              <li>Suporte via WhatsApp com retorno em até 4 horas</li>
+              <li>Atendimento presencial em Goiânia e remoto nacional</li>
+            </ul>
+            <a href="https://wa.me/5562982368804" target="_blank" rel="noopener"
+               style="display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;
+                      font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+                      color:var(--gold);text-decoration:none;transition:gap 0.2s;"
+               onmouseover="this.style.gap='14px'" onmouseout="this.style.gap='8px'">
+              Agendar diagnóstico gratuito
+              <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- METODOLOGIA                                               -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <section id="metodologia">
+      <div class="grid-overlay"></div>
+
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">COMO TRABALHAMOS</div>
+        <h2 class="section-title">
+          Execução com<br />
+          <span class="gold">precisão.</span>
+        </h2>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-step col-anim delay-1">
+          <span class="process-step-num">01</span>
+          <div class="process-step-badge">Etapa 1</div>
+          <div class="process-step-icon">
+            <iconify-icon icon="solar:magnifer-zoom-in-bold" width="22"></iconify-icon>
+          </div>
+          <div class="process-step-title">Diagnóstico</div>
+          <div class="process-step-time">1–2 Semanas</div>
+          <div class="process-step-desc">
+            Levantamento completo da situação fiscal, tributária e contábil atual da empresa,
+            identificando riscos e oportunidades.
+          </div>
+        </div>
+
+        <div class="process-step col-anim delay-2">
+          <span class="process-step-num">02</span>
+          <div class="process-step-badge">Etapa 2</div>
+          <div class="process-step-icon">
+            <iconify-icon icon="solar:clipboard-list-bold" width="22"></iconify-icon>
+          </div>
+          <div class="process-step-title">Planejamento</div>
+          <div class="process-step-time">2–3 Semanas</div>
+          <div class="process-step-desc">
+            Estruturação tributária, definição de regime e cronograma de obrigações com
+            projeção de impacto financeiro.
+          </div>
+        </div>
+
+        <div class="process-step col-anim delay-3">
+          <span class="process-step-num">03</span>
+          <div class="process-step-badge">Etapa 3</div>
+          <div class="process-step-icon">
+            <iconify-icon icon="solar:settings-bold" width="22"></iconify-icon>
+          </div>
+          <div class="process-step-title">Execução</div>
+          <div class="process-step-time">Contínuo</div>
+          <div class="process-step-desc">
+            Escrituração, apuração, entrega de obrigações e relatórios mensais com
+            transparência e rastreabilidade total.
+          </div>
+        </div>
+
+        <div class="process-step col-anim delay-4">
+          <span class="process-step-num">04</span>
+          <div class="process-step-badge">Etapa 4</div>
+          <div class="process-step-icon">
+            <iconify-icon icon="solar:chat-round-dots-bold" width="22"></iconify-icon>
+          </div>
+          <div class="process-step-title">Consultoria</div>
+          <div class="process-step-time">Mensal</div>
+          <div class="process-step-desc">
+            Reuniões de alinhamento, análise de resultados e orientação estratégica para
+            decisões baseadas em dados reais.
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- CASES / RESULTADOS                                        -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <section id="cases">
+      <div class="grid-overlay"></div>
+
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">RESULTADOS</div>
+        <h2 class="section-title">
+          Construídos para<br />
+          <span class="gold">gerar impacto.</span>
+        </h2>
+      </div>
+
+      <div class="cases-grid">
+        <div class="case-card col-anim delay-1">
+          <div class="case-index">CASE 01</div>
+          <div class="case-stat">–23%</div>
+          <div class="case-title">Redução Tributária</div>
+          <div class="case-desc">
+            Redução média de 23% na carga tributária legal de clientes no primeiro ano,
+            através de planejamento estruturado no Lucro Real.
+          </div>
+          <div style="display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;color:var(--gold);font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-top:auto;">
+            <iconify-icon icon="solar:check-circle-bold" width="14"></iconify-icon>
+            Impacto comprovado
+          </div>
+        </div>
+
+        <div class="case-card col-anim delay-2">
+          <div class="case-index">CASE 02</div>
+          <div class="case-stat">+50</div>
+          <div class="case-title">Regularização Fiscal</div>
+          <div class="case-desc">
+            +50 empresas regularizadas no SPED e obrigações acessórias sem autuações,
+            com entrega de todas as obrigações dentro dos prazos legais.
+          </div>
+          <div style="display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;color:var(--gold);font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-top:auto;">
+            <iconify-icon icon="solar:check-circle-bold" width="14"></iconify-icon>
+            Zero autuações
+          </div>
+        </div>
+
+        <div class="case-card col-anim delay-3">
+          <div class="case-index">CASE 03</div>
+          <div class="case-stat">R$380k</div>
+          <div class="case-title">Lucro Real Otimizado</div>
+          <div class="case-desc">
+            Planejamento fiscal que transformou prejuízo contábil em vantagem tributária real,
+            gerando economia de R$ 380 mil para um cliente no primeiro ano.
+          </div>
+          <div style="display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;color:var(--gold);font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-top:auto;">
+            <iconify-icon icon="solar:check-circle-bold" width="14"></iconify-icon>
+            Resultado real
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- EXPERTISE                                                 -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <section id="expertise">
+      <div class="grid-overlay"></div>
+
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">ESPECIALIDADES</div>
+        <h2 class="section-title">
+          Domínios de<br />
+          <span class="gold">excelência.</span>
+        </h2>
+      </div>
+
+      <div class="expertise-grid">
+        <div class="expertise-item col-anim delay-1">
+          <div class="expertise-num">01</div>
+          <div class="expertise-icon">
+            <iconify-icon icon="solar:balance-bold" width="24"></iconify-icon>
+          </div>
+          <div class="expertise-title">Fiscal & Tributário</div>
+          <div class="expertise-desc">
+            IRPJ, CSLL, PIS/COFINS, ICMS e IPI aplicados ao agronegócio com
+            domínio técnico e visão estratégica.
+          </div>
+        </div>
+
+        <div class="expertise-item col-anim delay-2">
+          <div class="expertise-num">02</div>
+          <div class="expertise-icon">
+            <iconify-icon icon="solar:book-bold" width="24"></iconify-icon>
+          </div>
+          <div class="expertise-title">Contabilidade Rural</div>
+          <div class="expertise-desc">
+            Escrituração de produtor rural, livro caixa, apuração de custeio agrícola
+            e controle patrimonial de propriedades rurais.
+          </div>
+        </div>
+
+        <div class="expertise-item col-anim delay-3">
+          <div class="expertise-num">03</div>
+          <div class="expertise-icon">
+            <iconify-icon icon="solar:shield-check-bold" width="24"></iconify-icon>
+          </div>
+          <div class="expertise-title">Compliance</div>
+          <div class="expertise-desc">
+            Adequação às normas do CFC, CVM e Receita Federal. Gestão de riscos
+            fiscais com transparência e responsabilidade.
+          </div>
+        </div>
+
+        <div class="expertise-item col-anim delay-4">
+          <div class="expertise-num">04</div>
+          <div class="expertise-icon">
+            <iconify-icon icon="solar:cpu-bold" width="24"></iconify-icon>
+          </div>
+          <div class="expertise-title">Tecnologia Contábil</div>
+          <div class="expertise-desc">
+            SPED, e-Social, NFe e automação de obrigações acessórias para
+            máxima eficiência operacional e rastreabilidade.
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- DEPOIMENTOS                                               -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <section id="depoimentos">
+      <div class="grid-overlay"></div>
+
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">CLIENTES</div>
+        <h2 class="section-title">
+          Quem confia<br />
+          <span class="gold">na Agrus.</span>
+        </h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card col-anim delay-1">
+          <div class="testimonial-stars">
+            <iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+          </div>
+          <p class="testimonial-text">
+            "A Agrus transformou nossa visão tributária. Economizamos R$ 380 mil em impostos
+            no primeiro ano de contrato. Resultado que fala por si."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RM</div>
+            <div>
+              <div class="testimonial-info-name">R. Mendonça</div>
+              <div class="testimonial-info-role">Diretor Financeiro — Agroindústria</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card col-anim delay-2">
+          <div class="testimonial-stars">
+            <iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+          </div>
+          <p class="testimonial-text">
+            "Finalmente uma contabilidade que entende o agro de verdade. SPED, Funrural,
+            tudo resolvido sem dor de cabeça. Parceria de verdade."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MC</div>
+            <div>
+              <div class="testimonial-info-name">M. Carvalho</div>
+              <div class="testimonial-info-role">Proprietário de Fazenda — Goiás</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card col-anim delay-3">
+          <div class="testimonial-stars">
+            <iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+          </div>
+          <p class="testimonial-text">
+            "Profissionalismo e domínio técnico únicos. A Agrus é essencial para nossa
+            operação no Lucro Real. Não imagino trabalhar com outra contabilidade."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">CB</div>
+            <div>
+              <div class="testimonial-info-name">C. Borges</div>
+              <div class="testimonial-info-role">CFO — Cooperativa Agroindustrial</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- PLANOS                                                    -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <section id="planos">
+      <div class="grid-overlay"></div>
+
+      <div class="section-header animate-on-scroll" style="max-width:900px;margin-left:auto;margin-right:auto;">
+        <div class="section-label">CONTRATAÇÃO</div>
+        <h2 class="section-title">
+          Modelos de<br />
+          <span class="gold">parceria.</span>
+        </h2>
+      </div>
+
+      <div class="plans-grid animate-on-scroll" style="max-width:900px;margin-left:auto;margin-right:auto;">
+        <div class="plan-card">
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--white-dim);border:1px solid var(--gold-border);border-radius:2px;padding:4px 10px;width:fit-content;">GRATUITO</div>
+          <div class="plan-title">Diagnóstico<br />Gratuito</div>
+          <div class="plan-desc">
+            Entenda a situação real da sua empresa antes de qualquer compromisso.
+          </div>
+          <ul class="plan-features">
+            <li>Análise fiscal completa sem custo</li>
+            <li>Identificação de riscos tributários</li>
+            <li>Relatório de oportunidades de economia</li>
+            <li>Reunião com consultor especialista</li>
+          </ul>
+          <a href="https://wa.me/5562982368804" target="_blank" rel="noopener" class="btn-secondary" style="text-align:center;margin-top:auto;">
+            Solicitar Diagnóstico
+          </a>
+        </div>
+
+        <div class="plan-card featured">
+          <div class="plan-badge">MAIS CONTRATADO</div>
+          <div class="plan-title">Parceria<br />Contábil</div>
+          <div class="plan-desc">
+            Estrutura completa de contabilidade e consultoria para sua operação crescer.
+          </div>
+          <ul class="plan-features">
+            <li>Contabilidade mensal completa</li>
+            <li>Lucro Real + todas obrigações acessórias</li>
+            <li>SPED, ECF, EFD, e-Social, REINF</li>
+            <li>Consultoria estratégica mensal</li>
+            <li>Suporte prioritário via WhatsApp</li>
+          </ul>
+          <a href="https://wa.me/5562982368804" target="_blank" rel="noopener" class="btn-primary" style="text-align:center;margin-top:auto;">
+            Falar com Consultor
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- CTA FINAL                                                 -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <section id="cta">
+      <div class="grid-overlay"></div>
+      <div class="cta-bg-glow"></div>
+
+      <div class="cta-inner animate-on-scroll">
+        <div class="section-label" style="margin:0 auto 2rem;">COMECE AGORA</div>
+        <h2 class="cta-headline">
+          Inicie sua<br />
+          <span class="gold">transformação fiscal.</span>
+        </h2>
+        <p class="cta-sub">
+          Entre em contato e descubra quanto sua empresa pode economizar com o
+          planejamento tributário correto no Lucro Real.
+        </p>
+        <div class="cta-actions">
+          <a href="https://wa.me/5562982368804" target="_blank" rel="noopener" class="shiny-cta">
+            <iconify-icon icon="logos:whatsapp-icon" width="20"></iconify-icon>
+            Agendar Diagnóstico Gratuito
+          </a>
+          <div class="cta-email">
+            <iconify-icon icon="solar:letter-bold" width="16"></iconify-icon>
+            <span>Ou envie um e-mail:</span>
+            <a href="mailto:comercial@agruscontabil.com.br">comercial@agruscontabil.com.br</a>
+          </div>
+        </div>
+
+        <!-- Contact chips -->
+        <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:3rem;">
+          <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.82rem;color:var(--white-dim);border:1px solid var(--gold-border);border-radius:3px;padding:10px 18px;background:var(--gold-glass);">
+            <iconify-icon icon="solar:phone-bold" width="15" style="color:var(--gold);"></iconify-icon>
+            (62) 98236-8804
+          </div>
+          <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.82rem;color:var(--white-dim);border:1px solid var(--gold-border);border-radius:3px;padding:10px 18px;background:var(--gold-glass);">
+            <iconify-icon icon="solar:map-point-bold" width="15" style="color:var(--gold);"></iconify-icon>
+            Goiânia – GO · Todo o Brasil
+          </div>
+          <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.82rem;color:var(--white-dim);border:1px solid var(--gold-border);border-radius:3px;padding:10px 18px;background:var(--gold-glass);">
+            <iconify-icon icon="solar:user-bold" width="15" style="color:var(--gold);"></iconify-icon>
+            Wilton Soares — Sócio Consultor
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- FOOTER                                                    -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div>
+            <img src="LOGOMARCA-TIPO.png" alt="Agrus Contábil" style="height:36px;width:auto;" />
+            <p class="footer-brand-desc">
+              Contabilidade especializada em agronegócio para empresas de médio e grande porte
+              no Lucro Real. Sediados em Goiânia – GO, atendemos todo o Brasil.
+            </p>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Navegação</div>
+            <ul class="footer-links">
+              <li><a href="#inicio">Início</a></li>
+              <li><a href="#proposta">Sobre</a></li>
+              <li><a href="#servicos">Serviços</a></li>
+              <li><a href="#metodologia">Como Trabalhamos</a></li>
+              <li><a href="#cta">Contato</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Contato</div>
+            <div class="footer-contact-item">
+              <iconify-icon icon="logos:whatsapp-icon" width="15"></iconify-icon>
+              <span>(62) 98236-8804</span>
+            </div>
+            <div class="footer-contact-item">
+              <iconify-icon icon="solar:letter-bold" width="15"></iconify-icon>
+              <a href="mailto:comercial@agruscontabil.com.br" style="color:var(--white-dim);transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--white-dim)'">
+                comercial@agruscontabil.com.br
+              </a>
+            </div>
+            <div class="footer-contact-item">
+              <iconify-icon icon="solar:map-point-bold" width="15"></iconify-icon>
+              <span>Goiânia – GO<br />Atende todo o Brasil</span>
+            </div>
+            <div class="footer-contact-item">
+              <iconify-icon icon="solar:user-bold" width="15"></iconify-icon>
+              <span>Wilton Soares<br />Sócio Consultor</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span class="footer-copy">
+            © 2025 Agrus Contábil. Todos os direitos reservados. · www.agruscontabil.com.br
+          </span>
+          <span class="footer-crc">
+            <iconify-icon icon="solar:diploma-bold" width="14"></iconify-icon>
+            Escritório registrado no CRC-GO
+          </span>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Cursor glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- WHATSAPP FLOAT                                            -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <a href="https://wa.me/5562982368804"
+       class="wa-float"
+       target="_blank"
+       rel="noopener"
+       aria-label="Fale conosco no WhatsApp">
+      <iconify-icon icon="logos:whatsapp-icon" width="28"></iconify-icon>
+    </a>
+
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- GLOBO 3D (Three.js module)                                -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <script type="module">
+      import * as THREE from './assets/76dea8151bc9352a_three.module.js';
+
+      const canvas = document.getElementById('globeCanvas');
+      if (!canvas) return;
+
+      /* ── Renderer — fundo 100% transparente ──────────────── */
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setClearColor(0x000000, 0);          // alpha = 0 → transparente
+
+      /* ── Scene / Camera ───────────────────────────────────── */
+      const scene  = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(46, 1, 0.1, 100);
+      camera.position.z = 2.6;
+
+      /* ── Constantes ───────────────────────────────────────── */
+      const RADIUS   = 1.0;
+      const GOLD_HEX = 0xf0d176;
+      const PHI      = Math.PI * (3 - Math.sqrt(5));   // golden angle
+
+      /* ── Globe dots — Fibonacci lattice ───────────────────── */
+      const TOTAL = 1100;
+      const pos   = new Float32Array(TOTAL * 3);
+
+      for (let i = 0; i < TOTAL; i++) {
+        const y     = 1 - (i / (TOTAL - 1)) * 2;
+        const r     = Math.sqrt(Math.max(0, 1 - y * y));
+        const theta = PHI * i;
+        pos[i * 3]     = Math.cos(theta) * r * RADIUS;
+        pos[i * 3 + 1] = y * RADIUS;
+        pos[i * 3 + 2] = Math.sin(theta) * r * RADIUS;
+      }
+
+      const dotGeo = new THREE.BufferGeometry();
+      dotGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+
+      const dotMat = new THREE.PointsMaterial({
+        color: GOLD_HEX,
+        size: 0.024,
+        sizeAttenuation: true,
+        transparent: true,
+        opacity: 0.82
+      });
+
+      const globe = new THREE.Points(dotGeo, dotMat);
+      scene.add(globe);
+
+      /* ── Arcos curvos entre pares de pontos ───────────────── */
+      const ARC_COUNT = 24;
+      const arcGroup  = new THREE.Group();
+
+      for (let k = 0; k < ARC_COUNT; k++) {
+        const iA = Math.floor(Math.random() * TOTAL) * 3;
+        const iB = Math.floor(Math.random() * TOTAL) * 3;
+
+        const A = new THREE.Vector3(pos[iA],   pos[iA+1],   pos[iA+2]);
+        const B = new THREE.Vector3(pos[iB],   pos[iB+1],   pos[iB+2]);
+
+        // Ponto médio empurrado para fora — cria arco sobre a superfície
+        const mid = A.clone().add(B).multiplyScalar(0.5)
+                      .normalize().multiplyScalar(RADIUS * 1.28);
+
+        const pts    = new THREE.QuadraticBezierCurve3(A, mid, B).getPoints(52);
+        const arcGeo = new THREE.BufferGeometry().setFromPoints(pts);
+        const arcMat = new THREE.LineBasicMaterial({
+          color: GOLD_HEX,
+          transparent: true,
+          opacity: Math.random() * 0.22 + 0.08
+        });
+        arcGroup.add(new THREE.Line(arcGeo, arcMat));
+      }
+
+      scene.add(arcGroup);
+
+      /* ── Anel equatorial ──────────────────────────────────── */
+      const mkRing = (radius, tube, opacity, rx, ry, rz) => {
+        const m = new THREE.Mesh(
+          new THREE.TorusGeometry(radius, tube, 16, 120),
+          new THREE.MeshBasicMaterial({ color: GOLD_HEX, transparent: true, opacity })
+        );
+        m.rotation.set(rx, ry, rz);
+        return m;
+      };
+
+      const ring1 = mkRing(RADIUS * 1.03, 0.004, 0.40, Math.PI / 2, 0, 0);
+      const ring2 = mkRing(RADIUS * 1.03, 0.002, 0.22, Math.PI / 3, 0, Math.PI / 7);
+      scene.add(ring1, ring2);
+
+      /* ── Resize responsivo ────────────────────────────────── */
+      function resize() {
+        const w = canvas.clientWidth  || 480;
+        const h = canvas.clientHeight || 480;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+      resize();
+      new ResizeObserver(resize).observe(canvas);
+
+      /* ── Interação — arrastar / inércia ───────────────────── */
+      let dragging = false;
+      let px = 0, py = 0;
+      let vx = 0, vy = 0;     // velocidade acumulada (inércia)
+      let offX = 0, offY = 0; // deslocamento manual acumulado
+
+      function onStart(x, y) { dragging = true; px = x; py = y; vx = vy = 0; }
+      function onMove(x, y)  {
+        if (!dragging) return;
+        vx = (x - px) * 0.014;
+        vy = (y - py) * 0.009;
+        offX += vy;
+        offY += vx;
+        px = x; py = y;
+      }
+      function onEnd() { dragging = false; }
+
+      canvas.addEventListener('mousedown',  e => onStart(e.clientX, e.clientY));
+      canvas.addEventListener('touchstart', e => onStart(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+      window.addEventListener('mousemove',  e => onMove(e.clientX, e.clientY));
+      window.addEventListener('touchmove',  e => onMove(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+      window.addEventListener('mouseup',  onEnd);
+      window.addEventListener('touchend', onEnd);
+
+      /* ── Loop de animação ─────────────────────────────────── */
+      const clock  = new THREE.Clock();
+      const AUTO_W = 0.006;   // rad/frame — rotação contínua visível (~21°/s a 60fps)
+      let   autoY  = 0;       // acumulador da rotação automática
+
+      function animate() {
+        requestAnimationFrame(animate);
+        const t = clock.getElapsedTime();
+
+        /* Inércia pós-drag — decai suavemente */
+        if (!dragging) {
+          vx *= 0.91;
+          vy *= 0.91;
+          offX += vy;   // vy (vertical)   → gira em torno de X
+          offY += vx;   // vx (horizontal) → gira em torno de Y
+        }
+
+        /* Auto-rotação acumulada no Y */
+        autoY += AUTO_W;
+
+        /* Aplica: auto + offset do drag */
+        globe.rotation.y = autoY  + offY;
+        globe.rotation.x = offX   * 0.7;
+
+        /* Arcos e anéis acompanham o globo */
+        arcGroup.rotation.y = globe.rotation.y;
+        arcGroup.rotation.x = globe.rotation.x;
+        ring1.rotation.y    = globe.rotation.y * 0.30;
+        ring2.rotation.y    = globe.rotation.y * 0.52;
+        ring2.rotation.x    = Math.PI / 3 + Math.sin(t * 0.25) * 0.05;
+
+        /* Efeito "respiração" — pulso na opacidade dos pontos */
+        dotMat.opacity = 0.68 + Math.sin(t * 0.7) * 0.20;
+
+        renderer.render(scene, camera);
+      }
+
+      animate();
+    </script>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- JAVASCRIPT                                                -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <script>
+    (function () {
+      'use strict';
+
+      /* ── 1. CANVAS PARTICLE NETWORK (hero background) ────────── */
+      (function initCanvas() {
+        const canvas = document.getElementById('heroCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let W, H, particles;
+        const GOLD = { r: 240, g: 209, b: 118 };
+        const COUNT = 55;
+
+        function resize() {
+          const section = canvas.parentElement;
+          W = canvas.width  = section.offsetWidth;
+          H = canvas.height = section.offsetHeight;
+        }
+
+        function mkParticle() {
+          return {
+            x: Math.random() * W,
+            y: Math.random() * H,
+            vx: (Math.random() - 0.5) * 0.35,
+            vy: (Math.random() - 0.5) * 0.35,
+            r: Math.random() * 1.8 + 0.6
+          };
+        }
+
+        function init() {
+          resize();
+          particles = Array.from({ length: COUNT }, mkParticle);
+        }
+
+        function draw() {
+          ctx.clearRect(0, 0, W, H);
+          const maxDist = 130;
+
+          for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0 || p.x > W) p.vx *= -1;
+            if (p.y < 0 || p.y > H) p.vy *= -1;
+
+            // dot
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${GOLD.r},${GOLD.g},${GOLD.b},0.55)`;
+            ctx.fill();
+
+            // lines to neighbours
+            for (let j = i + 1; j < particles.length; j++) {
+              const q = particles[j];
+              const dx = p.x - q.x, dy = p.y - q.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < maxDist) {
+                const alpha = (1 - dist / maxDist) * 0.22;
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(q.x, q.y);
+                ctx.strokeStyle = `rgba(${GOLD.r},${GOLD.g},${GOLD.b},${alpha})`;
+                ctx.lineWidth = 0.7;
+                ctx.stroke();
+              }
+            }
+          }
+          requestAnimationFrame(draw);
+        }
+
+        init();
+        draw();
+        window.addEventListener('resize', init, { passive: true });
+      })();
+
+
+      /* ── 2. CURSOR GLOW ──────────────────────────────────────── */
+      (function initCursor() {
+        const glow = document.getElementById('cursorGlow');
+        if (!glow) return;
+        let mx = 0, my = 0, cx = 0, cy = 0;
+        let visible = false;
+
+        document.addEventListener('mousemove', e => {
+          mx = e.clientX; my = e.clientY;
+          if (!visible) { glow.style.opacity = '1'; visible = true; }
+        }, { passive: true });
+
+        document.addEventListener('mouseleave', () => {
+          glow.style.opacity = '0'; visible = false;
+        });
+
+        function loop() {
+          cx += (mx - cx) * 0.12;
+          cy += (my - cy) * 0.12;
+          glow.style.left = cx + 'px';
+          glow.style.top  = cy + 'px';
+          requestAnimationFrame(loop);
+        }
+        loop();
+      })();
+
+
+      /* ── 3. SCROLL REVEAL (IntersectionObserver) ─────────────── */
+      const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('animate');
+            revealObs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+      document.querySelectorAll(
+        '.animate-on-scroll, .col-anim, .from-left, .from-right, .line-reveal, .line-grow'
+      ).forEach(el => revealObs.observe(el));
+
+
+      /* ── 4. NAVBAR SCROLL ─────────────────────────────────────── */
+      const navbar = document.getElementById('navbar');
+      let lastScroll = 0;
+
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        navbar.classList.toggle('scrolled', y > 50);
+        lastScroll = y;
+      }, { passive: true });
+
+
+      /* ── 5. MOBILE MENU ──────────────────────────────────────── */
+      const toggle   = document.getElementById('mobileToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      function toggleMenu(force) {
+        navLinks.classList.toggle('open', force);
+        const spans = toggle.querySelectorAll('span');
+        const isOpen = navLinks.classList.contains('open');
+        spans[0].style.transform = isOpen ? 'rotate(45deg) translate(5px,5px)' : '';
+        spans[1].style.opacity   = isOpen ? '0' : '1';
+        spans[2].style.transform = isOpen ? 'rotate(-45deg) translate(5px,-5px)' : '';
+      }
+
+      toggle.addEventListener('click', () => toggleMenu());
+      toggle.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); }
+      });
+      navLinks.querySelectorAll('a').forEach(a =>
+        a.addEventListener('click', () => toggleMenu(false))
+      );
+
+
+      /* ── 6. COUNTER ANIMATION ────────────────────────────────── */
+      const counterObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          const target   = parseInt(el.dataset.target, 10);
+          const prefix   = el.dataset.prefix  || '';
+          const suffix   = el.dataset.suffix  || '';
+          const duration = 1800;
+          const start    = performance.now();
+
+          (function tick(now) {
+            const t = Math.min((now - start) / duration, 1);
+            const ease = 1 - Math.pow(1 - t, 4);          // quartic ease-out
+            el.textContent = prefix + Math.round(ease * target) + suffix;
+            if (t < 1) requestAnimationFrame(tick);
+          })(start);
+
+          counterObs.unobserve(el);
+        });
+      }, { threshold: 0.6 });
+
+      document.querySelectorAll('[data-target]').forEach(c => counterObs.observe(c));
+
+
+      /* ── 7. TYPEWRITER on hero eyebrow ───────────────────────── */
+      (function typewriter() {
+        const el = document.querySelector('.hero-eyebrow');
+        if (!el) return;
+        const text  = el.textContent.trim();
+        const delay = 600;          // ms after page load
+        el.textContent = '';
+        el.style.borderRight = '2px solid rgba(240,209,118,0.7)';
+        el.style.paddingRight = '2px';
+
+        let i = 0;
+        setTimeout(function type() {
+          el.textContent = text.slice(0, ++i);
+          if (i < text.length) setTimeout(type, 36);
+          else {
+            // blink cursor then remove
+            setTimeout(() => { el.style.borderRight = 'none'; }, 900);
+          }
+        }, delay);
+      })();
+
+
+      /* ── 8. MAGNETIC BUTTONS ─────────────────────────────────── */
+      document.querySelectorAll('.btn-primary, .btn-secondary, .shiny-cta').forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+          const r = btn.getBoundingClientRect();
+          const x = ((e.clientX - r.left) / r.width  - 0.5) * 10;
+          const y = ((e.clientY - r.top)  / r.height - 0.5) * 6;
+          btn.style.transform = `translate(${x}px, ${y}px) translateY(-2px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = '';
+        });
+      });
+
+
+      /* ── 9. SERVICE CARD 3D TILT ─────────────────────────────── */
+      document.querySelectorAll('.service-card, .case-card, .testimonial-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const r   = card.getBoundingClientRect();
+          const x   = (e.clientX - r.left) / r.width  - 0.5;
+          const y   = (e.clientY - r.top)  / r.height - 0.5;
+          card.style.transform = `perspective(600px) rotateY(${x * 6}deg) rotateX(${-y * 4}deg) translateZ(4px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+          card.style.transition = 'transform 0.5s ease, background 0.3s';
+        });
+        card.addEventListener('mouseenter', () => {
+          card.style.transition = 'transform 0.1s ease, background 0.3s';
+        });
+      });
+
+
+      /* ── 10. SMOOTH ANCHOR SCROLL ────────────────────────────── */
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const id  = a.getAttribute('href');
+          if (id === '#') return;
+          const tgt = document.querySelector(id);
+          if (!tgt) return;
+          e.preventDefault();
+          window.scrollTo({
+            top: tgt.getBoundingClientRect().top + window.scrollY - 80,
+            behavior: 'smooth'
+          });
+        });
+      });
+
+
+      /* ── 11. ACTIVE NAV LINK on scroll ───────────────────────── */
+      const sections = document.querySelectorAll('section[id]');
+      const navAs    = document.querySelectorAll('.nav-links a');
+
+      const sectionObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            navAs.forEach(a => a.classList.remove('active'));
+            const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+            if (active) active.classList.add('active');
+          }
+        });
+      }, { threshold: 0.4 });
+
+      sections.forEach(s => sectionObs.observe(s));
+
+    })();
+    </script>
+
+  </body>
+</html>
