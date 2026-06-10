@@ -322,11 +322,29 @@
                        pointer-events: none; }
 
       /* Hero grid 2 colunas */
-      .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;      /* globo alinha pelo topo junto com o texto */
+      }
       .hero-content { position: relative; z-index: 1; }
-      .hero-globe-wrap { position: relative; display: flex; flex-direction: column;
-                         align-items: center; justify-content: center; z-index: 1; }
-      #globeCanvas { width: 480px; height: 480px; max-width: 100%; display: block; cursor: grab; }
+      .hero-globe-wrap {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        z-index: 1;
+        padding-top: 2rem;       /* pequeno espaço do topo para não colar na eyebrow */
+      }
+      #globeCanvas {
+        width: 520px;
+        height: 520px;
+        max-width: 100%;
+        display: block;
+        cursor: grab;
+      }
       #globeCanvas:active { cursor: grabbing; }
       .globe-glow-ring {
         position: absolute; width: 500px; height: 500px; max-width: 100%; border-radius: 50%;
@@ -391,76 +409,345 @@
                        line-height: 1.05; letter-spacing: -0.04em; color: var(--white); }
 
       /* ─── SERVIÇOS ───────────────────────────────────────────── */
-      #servicos { padding: 140px 2rem; background: var(--black-2); }
-      .services-grid { max-width: 1280px; margin: 0 auto;
-                       display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
-                       background: var(--gold-border); border: 1px solid var(--gold-border); }
-      .service-card { background: var(--black-2); padding: 2.5rem 2rem;
-                      position: relative; transition: background .3s; cursor: default; }
-      .service-card:hover { background: var(--black-3); }
-      .service-num { font-size: .68rem; font-weight: 500; letter-spacing: .18em;
-                     color: var(--gold); opacity: .6; margin-bottom: 1.5rem; }
-      .service-icon { width: 36px; height: 36px; border-radius: 8px;
-                      background: var(--gold-glass); border: 1px solid var(--gold-border);
-                      display: flex; align-items: center; justify-content: center;
-                      color: var(--gold); margin-bottom: 1.2rem; }
-      .service-title { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500;
-                       letter-spacing: -.02em; color: var(--white); margin-bottom: .75rem; }
-      .service-desc { font-size: .875rem; color: var(--white-dim); line-height: 1.65; margin-bottom: 1.5rem; }
-      .service-arrow { display: flex; align-items: center; gap: 6px; font-size: .75rem;
-                       font-weight: 500; letter-spacing: .06em; text-transform: uppercase;
-                       color: var(--gold); opacity: .7; transition: opacity .2s, gap .2s; }
-      .service-card:hover .service-arrow { opacity: 1; gap: 10px; }
+      #servicos {
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        min-height: 500px;
+      }
 
+      .servicos-bg-img {
+        position: absolute;
+        inset: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        object-position: center 35%;
+        opacity: 0.42;
+        filter: brightness(0.85) saturate(0.55) hue-rotate(-15deg);
+        pointer-events: none;
+      }
+
+      .servicos-bg-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(to bottom,
+            rgba(22,22,22,0.82) 0%,
+            rgba(22,22,22,0.45) 20%,
+            rgba(22,22,22,0.45) 80%,
+            rgba(22,22,22,0.92) 100%),
+          linear-gradient(to right,
+            rgba(22,22,22,0.70) 0%,
+            transparent 25%,
+            transparent 75%,
+            rgba(22,22,22,0.70) 100%);
+        pointer-events: none;
+      }
+
+      #servicos .section-header,
+      #servicos .services-grid,
+      #servicos .grid-overlay { position: relative; z-index: 2; }
+      #servicos { padding: 140px 2rem; }
+
+      .services-grid {
+        max-width: 1280px; margin: 0 auto;
+        display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem;
+      }
+
+      .service-card {
+        border-radius: 2rem;
+        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(255,255,255,0.03);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+        backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        padding: 2rem;
+        position: relative; overflow: hidden;
+        transition: transform .7s cubic-bezier(.16,1,.3,1),
+                    background .7s ease, border-color .7s ease;
+        cursor: default;
+      }
+      .service-card:hover {
+        transform: translateY(-8px);
+        background: rgba(255,255,255,0.05);
+        border-color: rgba(255,255,255,0.18);
+      }
+      .service-card::before {
+        content: '';
+        position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+        background: linear-gradient(135deg, rgba(240,209,118,0.05) 0%, transparent 60%);
+        opacity: 0; transition: opacity .7s ease;
+      }
+      .service-card:hover::before { opacity: 1; }
+
+      
       /* ─── DIFERENCIAL ────────────────────────────────────────── */
+      #diferencial {
+        padding: 0; position: relative; overflow: hidden;
+        min-height: 500px;
+      }
+
+      .diferencial-bg-img {
+        position: absolute; inset: 0; width: 100%; height: 100%;
+        object-fit: cover; object-position: center 45%;
+        opacity: 0.55;
+        filter: brightness(0.82) saturate(1.10);
+        pointer-events: none;
+      }
+
+      .diferencial-bg-overlay {
+        position: absolute; inset: 0; pointer-events: none;
+        background:
+          linear-gradient(to right,
+            rgba(16,16,16,0.96) 0%,
+            rgba(16,16,16,0.82) 35%,
+            rgba(16,16,16,0.40) 60%,
+            rgba(16,16,16,0.10) 100%),
+          linear-gradient(to bottom,
+            rgba(16,16,16,0.75) 0%,
+            rgba(16,16,16,0.10) 20%,
+            rgba(16,16,16,0.10) 80%,
+            rgba(16,16,16,0.85) 100%);
+      }
+
+      #diferencial .grid-overlay,
+      #diferencial .diferencial-inner { position: relative; z-index: 2; }
       #diferencial { padding: 140px 2rem; }
+
       .diferencial-inner { max-width: 1280px; margin: 0 auto;
-                           display: grid; grid-template-columns: 1.1fr .9fr; gap: 80px; align-items: center; }
+                           display: grid; grid-template-columns: 1.1fr .9fr;
+                           gap: 80px; align-items: center; }
       .diferencial-headline { font-family: 'Inter', ui-sans-serif, sans-serif;
                               font-size: clamp(2.8rem,7vw,7rem); font-weight: 300;
-                              line-height: 0.92; letter-spacing: -0.05em; color: var(--white); margin-bottom: 2rem; }
-      .diferencial-text { font-size: 1rem; color: var(--white-dim); line-height: 1.75; }
+                              line-height: 0.92; letter-spacing: -0.05em;
+                              color: var(--white); margin-bottom: 2rem; }
+      .diferencial-text { font-size: 1rem; color: var(--white-dim);
+                          line-height: 1.75; margin-bottom: 2rem; }
+      .diferencial-card {
+        border-radius: 2rem;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(16,16,16,0.72);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        padding: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem;
+      }
+      .diferencial-kpi { display: flex; flex-direction: column; gap: .3rem; }
+      .diferencial-kpi-num { font-family: 'Inter', sans-serif; font-size: 2.5rem;
+                             font-weight: 600; color: var(--gold); line-height: 1;
+                             letter-spacing: -.04em; }
+      .diferencial-kpi-label { font-size: .78rem; color: var(--white-dim);
+                               text-transform: uppercase; letter-spacing: .08em; }
+      .diferencial-kpi-list { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
+      .diferencial-kpi-list li { font-size: .875rem; color: var(--white-dim); line-height: 1.6;
+                                  display: flex; align-items: flex-start; gap: .6rem; }
+      .diferencial-kpi-list li::before { content: '—'; color: var(--gold); opacity: .6; flex-shrink: 0; }
 
+      
       /* ─── METODOLOGIA ────────────────────────────────────────── */
-      #metodologia { padding: 140px 2rem; background: var(--black-2); }
-      .process-grid { max-width: 1280px; margin: 0 auto;
-                      display: grid; grid-template-columns: repeat(4,1fr); gap: 2px;
-                      background: var(--gold-border); }
-      .process-step { background: var(--black-2); padding: 2.5rem 2rem; }
-      .process-num { font-size: .68rem; font-weight: 500; letter-spacing: .18em;
-                     color: var(--gold); opacity: .6; margin-bottom: 1.5rem; }
-      .process-step-title { font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 500;
-                            letter-spacing: -.02em; color: var(--white); margin-bottom: .5rem; }
-      .process-step-period { font-size: .72rem; font-weight: 500; letter-spacing: .12em;
-                             text-transform: uppercase; color: var(--gold); margin-bottom: .75rem; }
-      .process-step-desc { font-size: .875rem; color: var(--white-dim); line-height: 1.6; }
+      #metodologia { padding: 140px 2rem; background: var(--black); }
+      .process-grid {
+        max-width: 1280px; margin: 0 auto;
+        display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem;
+      }
+      .process-step {
+        border-radius: 2rem;
+        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(255,255,255,0.03);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+        backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        position: relative; overflow: hidden;
+        transition: transform .7s cubic-bezier(.16,1,.3,1),
+                    background .7s ease, border-color .7s ease;
+        padding: 2.5rem 2rem;
+        display: flex; flex-direction: column;
+      }
+      .process-step:hover {
+        transform: translateY(-8px);
+        background: rgba(255,255,255,0.05);
+        border-color: rgba(255,255,255,0.18);
+      }
+      .process-step::before {
+        content: ''; position: absolute; inset: 0; border-radius: inherit;
+        background: linear-gradient(135deg, rgba(240,209,118,0.05) 0%, transparent 60%);
+        opacity: 0; transition: opacity .7s; pointer-events: none;
+      }
+      .process-step:hover::before { opacity: 1; }
 
+      .process-step-num {
+        font-size: .65rem; font-weight: 500; letter-spacing: .2em;
+        color: var(--gold); opacity: .5; margin-bottom: .4rem; text-transform: uppercase;
+      }
+      .process-step-badge {
+        font-size: .72rem; font-weight: 400; letter-spacing: .1em;
+        color: var(--white-dim); margin-bottom: 1rem; text-transform: uppercase;
+      }
+      .process-step-icon {
+        width: 44px; height: 44px; border-radius: 12px;
+        background: rgba(240,209,118,0.10);
+        border: 1px solid rgba(240,209,118,0.18);
+        display: flex; align-items: center; justify-content: center;
+        color: rgba(240,209,118,0.85); margin-bottom: 1.5rem;
+        transition: transform .7s cubic-bezier(.16,1,.3,1), background .4s;
+      }
+      .process-step:hover .process-step-icon {
+        transform: scale(1.1) rotate(3deg);
+        background: rgba(240,209,118,0.18);
+      }
+      .process-step-title {
+        font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 500;
+        letter-spacing: -.025em; color: var(--white); margin-bottom: .4rem;
+      }
+      .process-step-time {
+        display: inline-block; font-size: .68rem; font-weight: 500;
+        letter-spacing: .1em; text-transform: uppercase;
+        color: rgba(240,209,118,.85);
+        background: rgba(240,209,118,.10); border: 1px solid rgba(240,209,118,.18);
+        border-radius: 6px; padding: 3px 10px; margin-bottom: .85rem;
+      }
+      .process-step-desc {
+        font-size: .875rem; color: var(--white-dim); line-height: 1.65; font-weight: 300;
+      }
+
+      
       /* ─── CASES ──────────────────────────────────────────────── */
+      #cases {
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        min-height: 600px;
+      }
+
+      /* Imagem de fundo — gráfico 3D */
+      .cases-bg-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 40%;
+        opacity: 0.55;
+        filter: brightness(0.9) saturate(0.7);
+        pointer-events: none;
+      }
+
+      /* Overlay para escurecer bordas e preservar centro */
+      .cases-bg-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 65% 55% at 65% 55%,
+            rgba(16,16,16,0.10) 0%,
+            rgba(16,16,16,0.55) 60%,
+            rgba(16,16,16,0.92) 100%),
+          linear-gradient(to bottom,
+            rgba(16,16,16,0.80) 0%,
+            rgba(16,16,16,0.05) 25%,
+            rgba(16,16,16,0.05) 75%,
+            rgba(16,16,16,0.88) 100%);
+        pointer-events: none;
+      }
+
+      /* Conteúdo acima dos layers */
+      #cases .section-header,
+      #cases .cases-grid { position: relative; z-index: 2; }
       #cases { padding: 140px 2rem; }
-      .cases-grid { max-width: 1280px; margin: 0 auto;
-                    display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-      .case-card { background: var(--black-2); border: 1px solid var(--gold-border);
-                   border-radius: 4px; padding: 2.5rem 2rem; position: relative;
-                   transition: border-color .3s, background .3s; }
-      .case-card:hover { border-color: var(--gold-border-strong); background: var(--black-3); }
-      .case-num { font-size: .68rem; font-weight: 500; letter-spacing: .18em;
-                  color: var(--gold); opacity: .6; margin-bottom: 1.2rem; }
-      .case-title { font-family: 'Inter', sans-serif; font-size: 1.15rem; font-weight: 500;
-                    letter-spacing: -.02em; color: var(--white); margin-bottom: .75rem; }
-      .case-desc { font-size: .875rem; color: var(--white-dim); line-height: 1.65; }
+
+      .cases-grid {
+        max-width: 1280px; margin: 0 auto;
+        display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem;
+      }
+
+      .case-card {
+        border-radius: 2rem;
+        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(255,255,255,0.03);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+        backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        padding: 2.5rem 2rem;
+        position: relative; overflow: hidden;
+        display: flex; flex-direction: column;
+        transition: transform .7s cubic-bezier(.16,1,.3,1),
+                    background .7s ease, border-color .7s ease;
+      }
+      .case-card:hover {
+        transform: translateY(-8px);
+        background: rgba(255,255,255,0.05);
+        border-color: rgba(255,255,255,0.18);
+      }
+      .case-card::before {
+        content: '';
+        position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+        background: linear-gradient(135deg, rgba(240,209,118,0.05) 0%, transparent 60%);
+        opacity: 0; transition: opacity .7s ease;
+      }
+      .case-card:hover::before { opacity: 1; }
+
+      .case-index { font-size: .65rem; font-weight: 500; letter-spacing: .2em;
+                    color: var(--gold); opacity: .55; margin-bottom: .5rem; text-transform: uppercase; }
+      .case-stat  { font-family: 'Inter', sans-serif; font-size: 2.5rem; font-weight: 300;
+                    letter-spacing: -.05em; color: var(--white); line-height: 1;
+                    margin-bottom: .75rem; }
+      .case-title { font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 500;
+                    letter-spacing: -.025em; color: var(--white); margin-bottom: .75rem; }
+      .case-desc  { font-size: .875rem; color: var(--white-dim); line-height: 1.7;
+                    font-weight: 300; margin-bottom: 1.5rem; }
+
 
       /* ─── EXPERTISE ──────────────────────────────────────────── */
       #expertise { padding: 140px 2rem; background: var(--black-2); }
-      .expertise-grid { max-width: 1280px; margin: 0 auto;
-                        display: grid; grid-template-columns: repeat(4,1fr); gap: 2px;
-                        background: var(--gold-border); }
-      .expertise-item { background: var(--black-2); padding: 2.5rem 2rem; }
-      .expertise-num { font-size: 2.5rem; font-weight: 300; letter-spacing: -.04em;
-                       color: var(--gold); opacity: .25; line-height: 1; margin-bottom: 1.5rem; }
-      .expertise-title { font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 500;
-                         letter-spacing: -.02em; color: var(--white); margin-bottom: .75rem; }
-      .expertise-desc { font-size: .875rem; color: var(--white-dim); line-height: 1.6; }
+      .expertise-grid {
+        max-width: 1280px; margin: 0 auto;
+        display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem;
+      }
+      .expertise-item {
+        border-radius: 2rem;
+        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(255,255,255,0.03);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+        backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        position: relative; overflow: hidden;
+        transition: transform .7s cubic-bezier(.16,1,.3,1),
+                    background .7s ease, border-color .7s ease;
+        padding: 2.5rem 2rem;
+      }
+      .expertise-item:hover {
+        transform: translateY(-8px);
+        background: rgba(255,255,255,0.05);
+        border-color: rgba(255,255,255,0.18);
+      }
+      .expertise-item::before {
+        content: ''; position: absolute; inset: 0; border-radius: inherit;
+        background: linear-gradient(135deg, rgba(240,209,118,0.05) 0%, transparent 60%);
+        opacity: 0; transition: opacity .7s; pointer-events: none;
+      }
+      .expertise-item:hover::before { opacity: 1; }
 
+      .expertise-num {
+        font-size: 3.2rem; font-weight: 300; letter-spacing: -.05em;
+        color: var(--gold); opacity: .15; line-height: 1; margin-bottom: 1.5rem;
+        font-variant-numeric: tabular-nums;
+      }
+      .expertise-icon {
+        width: 44px; height: 44px; border-radius: 12px;
+        background: rgba(240,209,118,0.10);
+        border: 1px solid rgba(240,209,118,0.18);
+        display: flex; align-items: center; justify-content: center;
+        color: rgba(240,209,118,0.85); margin-bottom: 1.5rem;
+        transition: transform .7s cubic-bezier(.16,1,.3,1), background .4s;
+      }
+      .expertise-item:hover .expertise-icon {
+        transform: scale(1.1) rotate(3deg);
+        background: rgba(240,209,118,0.18);
+      }
+      .expertise-title {
+        font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 500;
+        letter-spacing: -.025em; color: var(--white); margin-bottom: .75rem;
+      }
+      .expertise-desc {
+        font-size: .875rem; color: var(--white-dim); line-height: 1.65; font-weight: 300;
+      }
+
+      
       /* ─── DEPOIMENTOS ────────────────────────────────────────── */
       #depoimentos { padding: 140px 2rem; }
       .testimonials-grid { max-width: 1280px; margin: 0 auto;
@@ -479,49 +766,199 @@
       .testimonial-name { font-weight: 500; font-size: .875rem; color: var(--white); }
       .testimonial-role { font-size: .75rem; color: var(--white-dim); }
 
-      /* ─── PLANOS ─────────────────────────────────────────────── */
-      #planos { padding: 140px 2rem; background: var(--black-2); }
-      .plans-grid { max-width: 1280px; margin: 0 auto;
-                    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-      .plan-card { background: var(--black-3); border: 1px solid var(--gold-border);
-                   border-radius: 4px; padding: 3rem 2.5rem;
-                   display: flex; flex-direction: column; transition: background .3s; }
-      .plan-card:hover, .plan-card.featured { background: var(--black); border-color: var(--gold-border-strong); }
-      .plan-label { font-size: .65rem; font-weight: 500; letter-spacing: .2em;
-                    text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
-      .plan-title { font-family: 'Inter', sans-serif; font-size: 1.8rem; font-weight: 400;
-                    letter-spacing: -.03em; color: var(--white); margin-bottom: .75rem; }
-      .plan-desc { font-size: .9rem; color: var(--white-dim); line-height: 1.65; margin-bottom: 2rem; }
-      .plan-features { list-style: none; display: flex; flex-direction: column;
-                       gap: .6rem; margin-bottom: 2.5rem; flex: 1; }
-      .plan-features li { font-size: .875rem; color: var(--white-dim);
-                          display: flex; align-items: flex-start; gap: .6rem; }
-      .plan-features li::before { content: '—'; color: var(--gold); flex-shrink: 0; opacity: .7; }
+      /* ─── PLANOS — Cubo 3D rotativo (estilo Vectra) ───────────── */
+      #planos { padding: 140px 2rem; background: var(--black); overflow: hidden; }
 
+      /* Stage com perspectiva */
+      .cube-stage {
+        max-width: 500px; margin: 0 auto;
+        perspective: 1800px;
+        overflow: visible;
+        height: 560px;
+        display: flex; align-items: center; justify-content: center;
+        position: relative;
+      }
+
+      /* Keyframes — rotação contínua com leve inclinação em X */
+      @keyframes rotateCubeY {
+        0%   { transform: rotateX(-8deg) rotateY(0deg); }
+        100% { transform: rotateX(-8deg) rotateY(-360deg); }
+      }
+
+      /* Wrapper — cubo 3D exato */
+      .cube-wrapper {
+        width: 380px;
+        height: 520px;
+        transform-style: preserve-3d;
+        animation: rotateCubeY 14s linear infinite;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .cube-stage:hover .cube-wrapper { animation-play-state: paused; }
+
+      /* Base de cada face — tamanho FIXO idêntico */
+      .cube-face {
+        position: absolute;
+        width: 380px;
+        height: 520px;
+        /* Laterais RETAS para as faces se conectarem — só topo e base arredondados */
+        border-radius: 0;
+        border-top:    1px solid rgba(255,255,255,0.10);
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+        border-left:   none;
+        border-right:  none;
+        padding: 2.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        backface-visibility: visible;
+        overflow: hidden;
+      }
+
+      /* Brilho interno sutil */
+      .cube-face::before {
+        content: ''; position: absolute; inset: 0; border-radius: inherit;
+        pointer-events: none;
+      }
+
+      /* ── Variação de cor sutil em cada face ───────────────── */
+      /* Face 1 — azul-noite (fundo base) */
+      .cube-face-1 {
+        transform: rotateY(  0deg) translateZ(190px);
+        background: rgba(10, 10, 15, 0.92);
+      }
+      .cube-face-1::before {
+        background: linear-gradient(135deg, rgba(255,255,255,0.045) 0%, transparent 55%);
+      }
+
+      /* Face 2 — tom dourado quente */
+      .cube-face-2 {
+        transform: rotateY( 90deg) translateZ(190px);
+        background: rgba(14, 11, 8, 0.94);
+        border-top-color: rgba(240,209,118,0.38);
+        border-bottom-color: rgba(240,209,118,0.38);
+        box-shadow: 0 0 80px -20px rgba(240,209,118,0.20);
+      }
+      .cube-face-2::before {
+        background: linear-gradient(135deg, rgba(240,209,118,0.07) 0%, transparent 55%);
+      }
+      /* Linha dourada no topo */
+      .cube-face-2::after {
+        content: ''; position: absolute; top: 0; left: 2rem; right: 2rem;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(240,209,118,0.65), transparent);
+      }
+
+      /* Face 3 — azul-profundo ligeiramente diferente */
+      .cube-face-3 {
+        transform: rotateY(180deg) translateZ(190px);
+        background: rgba(8, 10, 16, 0.93);
+      }
+      .cube-face-3::before {
+        background: linear-gradient(135deg, rgba(200,220,255,0.03) 0%, transparent 55%);
+      }
+
+      /* Face 4 — tom âmbar escuro */
+      .cube-face-4 {
+        transform: rotateY(270deg) translateZ(190px);
+        background: rgba(14, 11, 8, 0.94);
+        border-top-color: rgba(240,209,118,0.38);
+        border-bottom-color: rgba(240,209,118,0.38);
+        box-shadow: 0 0 80px -20px rgba(240,209,118,0.20);
+      }
+      .cube-face-4::before {
+        background: linear-gradient(135deg, rgba(240,209,118,0.07) 0%, transparent 55%);
+      }
+      .cube-face-4::after {
+        content: ''; position: absolute; top: 0; left: 2rem; right: 2rem;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(240,209,118,0.65), transparent);
+      }
+
+      /* ── Tipografia interna ───────────────────────────────── */
+      .plan-badge {
+        font-size: .62rem; font-weight: 500; letter-spacing: .22em;
+        text-transform: uppercase; color: var(--gold);
+        display: block; margin-bottom: 1.2rem;
+      }
+      .plan-badge-pill {
+        display: inline-block; font-size: .62rem; font-weight: 500;
+        letter-spacing: .16em; text-transform: uppercase;
+        color: var(--white-dim); border: 1px solid rgba(255,255,255,0.18);
+        border-radius: 4px; padding: 3px 10px; margin-bottom: 1.2rem;
+      }
+      .plan-title {
+        font-family: 'Inter', sans-serif; font-size: 1.75rem; font-weight: 300;
+        letter-spacing: -.04em; color: var(--white);
+        margin-bottom: .65rem; line-height: 1.1;
+      }
+      .plan-desc {
+        font-size: .85rem; color: var(--white-dim); line-height: 1.65;
+        margin-bottom: 1.5rem; font-weight: 300;
+      }
+      .plan-features {
+        list-style: none; display: flex; flex-direction: column;
+        gap: .5rem; margin-bottom: 1.5rem; flex: 1;
+      }
+      .plan-features li {
+        font-size: .82rem; color: var(--white-dim); font-weight: 300;
+        display: flex; align-items: flex-start; gap: .55rem;
+        line-height: 1.5;
+      }
+      .plan-features li::before { content: '—'; color: var(--gold); opacity: .6; flex-shrink: 0; }
+
+      /* Hint de rotação */
+      .cube-hint {
+        text-align: center; margin-top: 2rem;
+        font-size: .68rem; color: rgba(245,245,245,.30);
+        letter-spacing: .14em; text-transform: uppercase;
+      }
+
+      
       /* ─── CTA FINAL ──────────────────────────────────────────── */
-      #cta { padding: 180px 2rem; background: var(--black); position: relative; overflow: hidden; }
-      .cta-inner { max-width: 800px; margin: 0 auto; text-align: center;
-                   position: relative; z-index: 1; }
-      .cta-headline { font-family: 'Inter', ui-sans-serif, sans-serif;
-                      font-size: clamp(2.5rem,6vw,5.5rem); font-weight: 300;
-                      letter-spacing: -0.04em; color: var(--white); line-height: 0.95;
-                      margin-bottom: 1.5rem; }
-      .cta-sub { font-size: 1rem; color: var(--white-dim); line-height: 1.7; margin-bottom: 3rem; }
+      #cta {
+        padding: 0; position: relative; overflow: hidden;
+        min-height: 600px; display: flex; align-items: center; justify-content: center;
+      }
+      .cta-bg-img {
+        position: absolute; inset: 0; width: 100%; height: 100%;
+        object-fit: cover; object-position: center 30%;
+        opacity: 0.72;
+        filter: sepia(0.18) hue-rotate(10deg) brightness(0.82) saturate(1.15);
+        pointer-events: none;
+      }
+      .cta-bg-overlay {
+        position: absolute; inset: 0; pointer-events: none;
+        background:
+          linear-gradient(to bottom,
+            rgba(16,16,16,0.60) 0%,
+            rgba(16,16,16,0.10) 30%,
+            rgba(16,16,16,0.10) 65%,
+            rgba(16,16,16,0.88) 100%),
+          linear-gradient(to right,
+            rgba(16,16,16,0.55) 0%, transparent 22%,
+            transparent 78%, rgba(16,16,16,0.55) 100%);
+      }
+      .cta-inner {
+        position: relative; z-index: 2;
+        max-width: 800px; margin: 0 auto; text-align: center; padding: 140px 2rem;
+      }
+      .cta-headline {
+        font-family: 'Inter', ui-sans-serif, sans-serif;
+        font-size: clamp(2.5rem,6vw,5.5rem); font-weight: 300;
+        letter-spacing: -0.04em; color: var(--white); line-height: 0.95;
+        margin-bottom: 1.5rem; text-shadow: 0 2px 40px rgba(0,0,0,0.5);
+      }
+      .cta-sub {
+        font-size: 1rem; color: rgba(245,245,245,0.82); line-height: 1.7;
+        margin-bottom: 3rem; text-shadow: 0 1px 12px rgba(0,0,0,0.5);
+      }
       .cta-actions { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
-      .cta-email { display: flex; align-items: center; gap: 8px; font-size: .88rem; color: var(--white-dim); }
+      .cta-email { display: flex; align-items: center; gap: 8px; font-size: .88rem;
+                   color: rgba(245,245,245,0.75); }
       .cta-email a { color: var(--gold); transition: opacity .2s; }
       .cta-email a:hover { opacity: .75; }
-      .shiny-cta {
-        position: relative; display: inline-flex; align-items: center; gap: 10px;
-        font-family: 'Inter', sans-serif; font-size: .88rem; font-weight: 500;
-        letter-spacing: 0.06em; text-transform: uppercase; color: var(--black);
-        background: linear-gradient(135deg, var(--gold) 0%, var(--gold-mid) 50%, var(--gold) 100%);
-        background-size: 200% auto; border: none; border-radius: 3px; padding: 18px 40px;
-        cursor: pointer; transition: all .3s; animation: shimmer 3s linear infinite;
-        text-decoration: none;
-      }
-      .shiny-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(240,209,118,0.4); }
 
+      
       /* ─── FOOTER ─────────────────────────────────────────────── */
       footer { padding: 60px 2rem 40px; background: var(--black-2);
                border-top: 1px solid var(--gold-border); }
@@ -560,8 +997,8 @@
       /* ─── RESPONSIVE ─────────────────────────────────────────── */
       @media (max-width: 1100px) {
         .hero-grid { grid-template-columns: 1fr; }
-        .hero-globe-wrap { order: -1; }
-        #globeCanvas { width: 340px; height: 340px; }
+        .hero-globe-wrap { order: -1; min-height: 360px; }
+        #globeCanvas { width: 340px; height: 340px; min-height: 340px; }
         .globe-glow-ring { width: 360px; height: 360px; }
       }
       @media (max-width: 1024px) {
@@ -827,7 +1264,16 @@
     <!-- SERVIÇOS                                                  -->
     <!-- ════════════════════════════════════════════════════════ -->
     <section id="servicos">
-      <div class="grid-overlay"></div>
+
+      <!-- Imagem de fundo — tecnologia/SPED/compliance -->
+      <img
+        class="servicos-bg-img"
+        src="assets/bbf5b5aedbc9dd1b_30ff8562-5a2d-46c8-8aa2-ab717e.jpg"
+        alt=""
+        aria-hidden="true"
+      />
+      <div class="servicos-bg-overlay"></div>
+      <div class="grid-overlay" style="opacity:0.20;"></div>
 
       <div class="section-header animate-on-scroll">
         <div class="section-label">SERVIÇOS</div>
@@ -941,7 +1387,11 @@
     <!-- DIFERENCIAL                                               -->
     <!-- ════════════════════════════════════════════════════════ -->
     <section id="diferencial">
-      <div class="grid-overlay"></div>
+      <img class="diferencial-bg-img"
+           src="assets/0414cc4e2e5b7224_1600w.jpg"
+           alt="" aria-hidden="true" />
+      <div class="diferencial-bg-overlay"></div>
+      <div class="grid-overlay" style="opacity:0.18;"></div>
 
       <div class="diferencial-inner">
         <div class="diferencial-left animate-on-scroll">
@@ -1072,6 +1522,17 @@
     <!-- CASES / RESULTADOS                                        -->
     <!-- ════════════════════════════════════════════════════════ -->
     <section id="cases">
+
+      <!-- Imagem de fundo — gráfico 3D / análise de dados -->
+      <img
+        class="cases-bg-img"
+        src="assets/ec96e7c3eb50c147_cca1b731-0621-4994-a36c-b2f5d5.webp"
+        alt=""
+        aria-hidden="true"
+      />
+      <!-- Overlay de controle de transparência -->
+      <div class="cases-bg-overlay"></div>
+
       <div class="grid-overlay"></div>
 
       <div class="section-header animate-on-scroll">
@@ -1275,65 +1736,124 @@
     </section>
 
 
-    <!-- ════════════════════════════════════════════════════════ -->
-    <!-- PLANOS                                                    -->
+        <!-- ════════════════════════════════════════════════════════ -->
+    <!-- PLANOS — Cubo 3D rotativo (estilo Vectra)                  -->
     <!-- ════════════════════════════════════════════════════════ -->
     <section id="planos">
       <div class="grid-overlay"></div>
 
-      <div class="section-header animate-on-scroll" style="max-width:900px;margin-left:auto;margin-right:auto;">
+      <div class="section-header animate-on-scroll">
         <div class="section-label">CONTRATAÇÃO</div>
         <h2 class="section-title">
           Modelos de<br />
           <span class="text-gradient-gold">parceria.</span>
         </h2>
+        <p style="font-size:.95rem;color:var(--white-dim);line-height:1.7;margin-top:1rem;font-weight:300;">
+          Passe o mouse sobre o cubo para pausar e explorar cada modelo.
+        </p>
       </div>
 
-      <div class="plans-grid animate-on-scroll" style="max-width:900px;margin-left:auto;margin-right:auto;">
-        <div class="plan-card">
-          <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--white-dim);border:1px solid var(--gold-border);border-radius:2px;padding:4px 10px;width:fit-content;">GRATUITO</div>
-          <div class="plan-title">Diagnóstico<br />Gratuito</div>
-          <div class="plan-desc">
-            Entenda a situação real da sua empresa antes de qualquer compromisso.
-          </div>
-          <ul class="plan-features">
-            <li>Análise fiscal completa sem custo</li>
-            <li>Identificação de riscos tributários</li>
-            <li>Relatório de oportunidades de economia</li>
-            <li>Reunião com consultor especialista</li>
-          </ul>
-          <a href="https://wa.me/5562982368804" target="_blank" rel="noopener" class="btn-secondary" style="text-align:center;margin-top:auto;">
-            Solicitar Diagnóstico
-          </a>
-        </div>
+      <!-- Stage 3D — perspectiva como o Vectra -->
+      <div class="cube-stage animate-on-scroll">
+        <div class="cube-wrapper">
 
-        <div class="plan-card featured">
-          <div class="plan-badge">MAIS CONTRATADO</div>
-          <div class="plan-title">Parceria<br />Contábil</div>
-          <div class="plan-desc">
-            Estrutura completa de contabilidade e consultoria para sua operação crescer.
+          <!-- FACE 1 — Diagnóstico Gratuito (frente) -->
+          <div class="cube-face cube-face-1">
+            <span class="plan-badge-pill">GRATUITO</span>
+            <div class="plan-title">Diagnóstico<br />Gratuito</div>
+            <div class="plan-desc">
+              Entenda a situação real da sua empresa antes de qualquer compromisso.
+            </div>
+            <ul class="plan-features">
+              <li>Análise fiscal completa sem custo</li>
+              <li>Identificação de riscos tributários</li>
+              <li>Relatório de oportunidades de economia</li>
+              <li>Reunião com consultor especialista</li>
+            </ul>
+            <a href="https://wa.me/5562982368804" target="_blank" rel="noopener"
+               class="btn-secondary" style="text-align:center;">
+              SOLICITAR DIAGNÓSTICO
+            </a>
           </div>
-          <ul class="plan-features">
-            <li>Contabilidade mensal completa</li>
-            <li>Lucro Real + todas obrigações acessórias</li>
-            <li>SPED, ECF, EFD, e-Social, REINF</li>
-            <li>Consultoria estratégica mensal</li>
-            <li>Suporte prioritário via WhatsApp</li>
-          </ul>
-          <a href="https://wa.me/5562982368804" target="_blank" rel="noopener" class="btn-primary" style="text-align:center;margin-top:auto;">
-            Falar com Consultor
-          </a>
+
+          <!-- FACE 2 — Parceria Contábil (direita) -->
+          <div class="cube-face cube-face-2">
+            <span class="plan-badge">MAIS CONTRATADO</span>
+            <div class="plan-title">Parceria<br />Contábil</div>
+            <div class="plan-desc">
+              Estrutura completa de contabilidade e consultoria para sua operação crescer.
+            </div>
+            <ul class="plan-features">
+              <li>Contabilidade mensal completa</li>
+              <li>Lucro Real + todas obrigações acessórias</li>
+              <li>SPED, ECF, EFD, e-Social, REINF</li>
+              <li>Consultoria estratégica mensal</li>
+              <li>Suporte prioritário via WhatsApp</li>
+            </ul>
+            <a href="https://wa.me/5562982368804" target="_blank" rel="noopener"
+               class="btn-primary" style="text-align:center;">
+              FALAR COM CONSULTOR
+            </a>
+          </div>
+
+          <!-- FACE 3 — Diagnóstico Gratuito (verso) -->
+          <div class="cube-face cube-face-3">
+            <span class="plan-badge-pill">GRATUITO</span>
+            <div class="plan-title">Diagnóstico<br />Gratuito</div>
+            <div class="plan-desc">
+              Entenda a situação real da sua empresa antes de qualquer compromisso.
+            </div>
+            <ul class="plan-features">
+              <li>Análise fiscal completa sem custo</li>
+              <li>Identificação de riscos tributários</li>
+              <li>Relatório de oportunidades de economia</li>
+              <li>Reunião com consultor especialista</li>
+            </ul>
+            <a href="https://wa.me/5562982368804" target="_blank" rel="noopener"
+               class="btn-secondary" style="text-align:center;">
+              SOLICITAR DIAGNÓSTICO
+            </a>
+          </div>
+
+          <!-- FACE 4 — Parceria Contábil (esquerda) -->
+          <div class="cube-face cube-face-4">
+            <span class="plan-badge">MAIS CONTRATADO</span>
+            <div class="plan-title">Parceria<br />Contábil</div>
+            <div class="plan-desc">
+              Estrutura completa de contabilidade e consultoria para sua operação crescer.
+            </div>
+            <ul class="plan-features">
+              <li>Contabilidade mensal completa</li>
+              <li>Lucro Real + todas obrigações acessórias</li>
+              <li>SPED, ECF, EFD, e-Social, REINF</li>
+              <li>Consultoria estratégica mensal</li>
+              <li>Suporte prioritário via WhatsApp</li>
+            </ul>
+            <a href="https://wa.me/5562982368804" target="_blank" rel="noopener"
+               class="btn-primary" style="text-align:center;">
+              FALAR COM CONSULTOR
+            </a>
+          </div>
+
         </div>
       </div>
+
+      <p class="cube-hint">
+        <iconify-icon icon="solar:rotate-right-bold" width="14"></iconify-icon>
+        Passe o mouse para pausar · Rotação automática
+      </p>
+
     </section>
 
-
-    <!-- ════════════════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════════════ -->
     <!-- CTA FINAL                                                 -->
     <!-- ════════════════════════════════════════════════════════ -->
     <section id="cta">
-      <div class="grid-overlay"></div>
-      <div class="cta-bg-glow"></div>
+      <img class="cta-bg-img"
+           src="assets/854fadcfa8c6f391_78412a8a-ac77-4cdc-9b2a-5b29bd.webp"
+           alt="" aria-hidden="true" />
+      <div class="cta-bg-overlay"></div>
+      <div class="grid-overlay" style="opacity:0.20;position:relative;z-index:1;"></div>
 
       <div class="cta-inner animate-on-scroll">
         <div class="section-label" style="margin:0 auto 2rem;">COMECE AGORA</div>
@@ -1469,8 +1989,10 @@
         var ORANGE = 0xf97316;   /* laranja partículas bg */
 
         /* ── Renderer ─────────────────────────────────────────── */
-        var W = canvas.clientWidth  || canvas.width  || 480;
-        var H = canvas.clientHeight || canvas.height || 480;
+        /* Usar getBoundingClientRect para pegar o tamanho REAL após o layout CSS */
+        var rect0 = canvas.getBoundingClientRect();
+        var W = rect0.width  > 10 ? rect0.width  : (canvas.clientWidth  || canvas.width  || 480);
+        var H = rect0.height > 10 ? rect0.height : (canvas.clientHeight || canvas.height || 480);
         var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
         renderer.setSize(W, H);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
